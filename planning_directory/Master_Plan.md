@@ -10,19 +10,19 @@
 # 02 - Nouns
 
 - Users
-  - ID
-  - name
+  - id
   - username
   - password
   - email
 - Players
   - id
-  - message
-  - date_created
-  - user_id
-  - admin_id
-  - card_id
+  - user_id FK
+  - watched
 
+- Stats
+  - id
+  - player_id FK
+  - ??
 
 
 

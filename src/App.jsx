@@ -1,4 +1,5 @@
 import './App.css';
+import Navbar from './components/Navbar';
 
 // const options = {
 // 	method: 'GET',
@@ -16,7 +17,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Lighthouse Labs Final Project</h1>
+      <Navbar />
     </div>
   );
 }

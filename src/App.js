@@ -1,6 +1,5 @@
-import './App.css';
 import FeaturedPlayers from './components/FeaturedPlayers';
-import Header from './components/Header.js';
+import Nav from './components/Nav.js';
 
 // const options = {
 // 	method: 'GET',
@@ -17,9 +16,8 @@ import Header from './components/Header.js';
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <FeaturedPlayers/>
+    <div>
+      <Nav/>
     </div>
   );
 }

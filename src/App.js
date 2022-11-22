@@ -1,4 +1,6 @@
 import './App.css';
+import FeaturedPlayers from './components/FeaturedPlayers';
+import Header from './components/Header.js';
 
 // const options = {
 // 	method: 'GET',
@@ -16,7 +18,8 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Lighthouse Labs Final Project</h1>
+      <Header/>
+      <FeaturedPlayers/>
     </div>
   );
 }

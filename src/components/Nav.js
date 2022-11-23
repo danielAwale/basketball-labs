@@ -4,12 +4,13 @@ import "../styles/nav.scss";
 export default function Nav(props) {
   return (
     <nav className="nav">
-      <img className="image" href="/" src="https://www.pngplay.com/wp-content/uploads/6/Basketball-Logo-Background-PNG-Image.png"/>
+      <img className="image" href="/" alt="baketball logo" src="https://www.pngplay.com/wp-content/uploads/6/Basketball-Logo-Background-PNG-Image.png"/>
       <div className="nav-buttons">
-        <a href="/graphs">Graph Stats</a>
-        <a href="/stats">Player Stats</a>
+        <div>Basketball Labs</div>
+        <a href="/graphs">Graphs</a>
+        <a href="/stats">Stats</a>
         <a href="/watchlist">Watchlist</a>
-        <a href="/register">User Login</a>
+        <a href="/register">Login</a>
       </div>
     </nav>
   )

@@ -2,6 +2,7 @@ import './App.css';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
+import News from './components/News';
 
 // const options = {
 // 	method: 'GET',
@@ -21,7 +22,9 @@ function App() {
     <div className="App">
       <Navbar />
       <Hero />
+      <News />
       <Footer />
+
     </div>
   );
 }

@@ -3,18 +3,20 @@
 .image {
   display: flex;
   justify-content: flex-start;
-  height: 10%;
-  width: 10%;  
+  height: 100%;
+  width: 10%;
 }
 
 .image:hover {
-  background-color: $maroon;
+  background-color: $hover-light-orange;
+  color: $light-grey;
 }
 
 .nav {
   display: flex;
   flex-direction: row;
-  background-color: $light-orange;
+  background-color: $basketball-orange;
+  background-size: auto;
 }
 
 .nav-buttons {
@@ -24,17 +26,40 @@
 
 .nav-buttons a {
   text-align: center;
-  color: $maroon;
+  color: $white;
   text-decoration: none;
+  font-family: $font-family;
+  font-size: 200%;
 
   margin: auto;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 60px;
+  padding-bottom: 1em;
+  padding-top: 1em;
 
-  height: 60%;
-  width: 10%;
+  height: auto;
+  width: 140px;
+
+  border-style: solid;
+  border-radius: 20px;
 }
 .nav-buttons a:hover {
-  background-color: $yellow;
+  background-color: $orange;
+}
+
+.nav-buttons div {
+  font-family: $font-family;
+  height: auto;
+  width: auto;
+  color: $orange;
+  font-size: 250%;
+  font-weight: bold;
+
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 60px;
+  padding-bottom: 1em;
+  padding-top: 1em;
 }

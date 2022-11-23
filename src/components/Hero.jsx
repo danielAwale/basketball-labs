@@ -22,6 +22,8 @@ const Hero = () => {
 
     return (
       <div>
+
+        
             {news.map(new1 => (
               <>
                 <h2>{new1.title}</h2>

@@ -1,5 +1,6 @@
 import FeaturedPlayers from './components/FeaturedPlayers';
 import Nav from './components/Nav.js';
+import "./styles/app.scss"
 
 // const options = {
 // 	method: 'GET',
@@ -16,7 +17,7 @@ import Nav from './components/Nav.js';
 
 function App() {
   return (
-    <div>
+    <div className="root-div">
       <Nav/>
     </div>
   );

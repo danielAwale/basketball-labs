@@ -17,8 +17,8 @@ const Navbar = () => {
           <a href="#" className='text-lg hover:text-gray-400'>Stats</a>
           <a href="#" className='text-lg hover:text-gray-400'>Watchlist</a>
         </div>
-        {/* Butto */}
-        <a href="" className="p-3 px-5 pt-2 pb-2 text-white bg-orange-600 rounded-full baseline text-lg">Register</a>
+        {/* Button */}
+        <a href="/register" className="p-3 px-5 pt-2 pb-2 text-white bg-orange-600 rounded-full baseline text-lg">Register</a>
       </div>
       </nav>
     </div>

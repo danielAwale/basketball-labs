@@ -5,7 +5,7 @@ const Stats = () => {
   const [statsData, setStatsData] = useState([]);
 
   useEffect(() => {
-    fetch('/filter')
+    fetch('http://localhost:5000/filter')
     .then(response => response.json())
     .then(data => setStatsData(data))
     .catch(error => console.log(error.message))

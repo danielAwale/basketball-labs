@@ -14,7 +14,7 @@ import Featured_Players from './components/Featured_Players';
 import Watchlist from './components/Watchlist';
 import Login from './components/Login';
 import Register from './components/Register';
-import Stats from './components/Stats';
+//import Stats from './components/Stats';
 import { PlayerData } from './Data'
 
 function App() {
@@ -58,7 +58,7 @@ function App() {
         <Nav />
         <Hero />
         <News />
-        <Stats />
+        {/* <Stats /> */}
         <BarChartStats chartData={userData} />
         <Footer />
       </div>

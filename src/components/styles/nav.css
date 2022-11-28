@@ -1,0 +1,118 @@
+/* Coppied from the old variables.scss
+$font-family: 'Montserrat', sans-serif;
+
+$maroon: rgb(60, 21, 24);
+$red: rgb(105, 20, 14);
+
+$basketball-orange: rgb(250, 131, 32);
+$orange: rgb(164, 66, 0);
+$light-orange: rgb(213, 137, 54);
+
+$hover-light-orange: rgb(233, 167, 96);
+$hover-dark-orange: rgb(175, 101, 22);
+
+$yellow: rgb(242, 243, 174);
+$white: rgb(253, 255, 252);
+$light-grey: rgb(157, 157, 157); 
+*/
+
+.image {
+  display: flex;
+  justify-content: flex-start;
+  height: auto;
+  width: 100px;
+  border-radius: 50%;
+
+  transition: 1s;
+
+  margin: 15px;
+}
+
+.image:hover {
+  background: rgb(250, 131, 32);
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  background-size: auto;
+  align-content: center;
+}
+
+.nav-buttons {
+  display: flex;
+  width: 85%;
+  align-items: center;
+}
+
+.individual-nav-button {
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 120% !important;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 60px;
+  padding-top: 1em;
+
+  margin-right: -1px;
+  margin-left: -1px;
+
+  height: auto;
+  width: 140px;
+
+}
+
+.nav-buttons div {
+  font-family: 'Montserrat', sans-serif;
+  height: auto;
+  width: auto;
+  color: black;
+  font-size: 300%;
+  text-align: center;
+
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.icon-and-button {
+  display: flex;
+  flex-direction: column;
+
+  border-right: solid;
+  border-left: solid;
+  border-width: 2px;
+  border-top: none;
+  border-bottom: none;
+  border-color: black !important;
+
+  transition: 0.3s;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+.icon {
+  transition: 0.3s;
+  font-size: 200%;
+
+  margin: auto;
+}
+
+.icon-and-button:hover{
+  background-color: white;
+  scale: 1.15;
+}
+
+.icon-and-button:hover .icon{
+  background-color: white;
+  scale: 1.5;
+}
+
+

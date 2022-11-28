@@ -8,7 +8,7 @@ import BarChartStats from './components/BarChartStats';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
-// import News from './components/News';
+import News from './components/News';
 import Nav from './components/Nav';
 import Featured_Players from './components/Featured_Players';
 import Watchlist from './components/Watchlist';
@@ -57,6 +57,7 @@ function App() {
       <div className="App">
         <Nav />
         <Hero />
+        <News />
         <Stats />
         <BarChartStats chartData={userData} />
         <Footer />

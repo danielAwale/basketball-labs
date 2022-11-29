@@ -12,7 +12,7 @@ import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import News from './components/News';
 import Nav from './components/Nav';
-// import Featured_Players from './components/Featured_Players';
+import Featured_Players from './components/Featured_Players';
 import Watchlist from './components/Watchlist';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -81,7 +81,7 @@ function App() {
       </Router>
       <div className="App">
         <Nav />
-        <Hero />
+        <Featured_Players />
         <News />
         <Stats />
         <BarChartStats chartData={userData} />

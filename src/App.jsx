@@ -12,7 +12,7 @@ import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import News from './components/News';
 import Nav from './components/Nav';
-import Featured_Players from './components/Featured_Players';
+import FeaturedPlayers from './components/FeaturedPlayers';
 import Watchlist from './components/Watchlist';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -39,7 +39,7 @@ function App() {
 
       const parseRes = await response.json();
 
-      parseRes === true ? setIsAuthenicated(true):setIsAuthenicated(false);
+      parseRes === true ? setIsAuthenicated(true) : setIsAuthenicated(false);
 
     } catch (error) {
       console.error(error.message);
@@ -81,7 +81,7 @@ function App() {
       </Router>
       <div className="App">
         <Nav />
-        <Featured_Players />
+        <FeaturedPlayers />
         <News />
         <Stats />
         <BarChartStats chartData={userData} />

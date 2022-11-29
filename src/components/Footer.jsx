@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-<footer className="relative bottom-0 left-0 z-20 p-4 w-full dark:bg-gray-700">
+    <footer className="bottom-0 left-0 z-20 p-3 w-full dark:bg-gray-700">
     <div className="py-2 px-3 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
         <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2022 <a href="#">BasketBall Labs™</a>. All Rights Reserved.
         </span>

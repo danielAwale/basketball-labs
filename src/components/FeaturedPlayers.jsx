@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./styles/featured_player.css";
 
-const Featured_Players = () => {
+const FeaturedPlayers = () => {
   return (
     <div className="all-player-tiles">
       <div tabindex="0" className="focus:outline-none">
@@ -69,4 +69,4 @@ const Featured_Players = () => {
   )
 }
 
-export default Featured_Players
+export default FeaturedPlayers

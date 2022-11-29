@@ -8,7 +8,7 @@ const Watchlist = ({ setAuth }) => {
     try {
       const response = await fetch("http://localhost:5000/watchlist/", {
         method: "GET",
-        headers: { token: localStorage.jwt_token }
+        headers: { jwt_token: localStorage.token }
       });
       console.log(response);
       const parseRes = await response.json();

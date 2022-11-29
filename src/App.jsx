@@ -2,6 +2,8 @@ import React, { Fragment, useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import './App.css';
 import BarChartStats from './components/BarChartStats';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 //components
@@ -17,6 +19,8 @@ import Register from './components/Register';
 import Stats from './components/Stats';
 import { PlayerData } from './Data'
 
+toast.configure();
+
 function App() {
 
   const [isAuthenicated, setIsAuthenicated] = useState(false);
@@ -24,6 +28,27 @@ function App() {
   const setAuth = (boolean) => {
     setIsAuthenicated(boolean);
   };
+
+  async function isAuth() {
+    try {
+
+      const response = await fetch("http://localhost:5000/auth/is-verify", {
+        method: "GET",
+        headers: { jwt_token: localStorage.token }
+      });
+
+      const parseRes = await response.json();
+
+      parseRes === true ? setIsAuthenicated(true):setIsAuthenicated(false);
+
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  useEffect(() => {
+    isAuth()
+  })
 
   const [userData, setUserData] = useState({
     labels: PlayerData.map(item => item.first_name),

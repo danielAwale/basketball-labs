@@ -76,7 +76,7 @@ const Stats = () => {
             <tbody>
               <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                 <td class="text-xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <div class="relative w-17 h-17">
+                <div class="relative w-16 h-16">
                 <img class="rounded-full border border-gray-100 shadow-sm" src={playersImage[index]} alt="" />
                 <div class="absolute top-0 right-0 h-3 w-3 my-1 border-2 border-white rounded-full z-2"></div>
                </div>

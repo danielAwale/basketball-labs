@@ -7,9 +7,8 @@ import { faChartColumn, faCalculator, faBinoculars, faUserPlus } from "@fortawes
 
 export default function Nav(props) {
   return (
-    <Router>
     <nav className="nav">
-      <img className="image" href="/" alt="baketball logo" src="https://cdn-icons-png.flaticon.com/512/3716/3716899.png" />
+      <NavLink to ="/"><img className="image" alt="baketball logo" src="https://cdn-icons-png.flaticon.com/512/3716/3716899.png" /></NavLink>
       <div className="nav-buttons">
         <div>Basketball Labs</div>
         <span className="icon-and-button">
@@ -30,6 +29,5 @@ export default function Nav(props) {
         </span>
       </div>
     </nav>
-    </Router>
   )
 };

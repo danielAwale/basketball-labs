@@ -9,10 +9,14 @@ import News from './News'
 const Home = () => {
   return (
     <>
-      <Nav /> 
-      <Hero />
-      <News />
-      <Footer />
+    <div class="flex flex-col h-screen justify-between">
+    <Nav/>
+   <main>
+    <Hero />
+    <News />
+   </main>
+  <footer><Footer /></footer>
+  </div> 
     </>
   )
 }

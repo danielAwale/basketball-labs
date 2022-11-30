@@ -25,7 +25,7 @@ export default function Nav(props) {
         </span>
         <span className="icon-and-button">
           <FontAwesomeIcon className="icon" icon={faUserPlus} />
-          <NavLink to="register" className="individual-nav-button" id="last-nav-button">Register</NavLink>
+          <NavLink to="/register" className="individual-nav-button" id="last-nav-button">Register</NavLink>
         </span>
       </div>
     </nav>

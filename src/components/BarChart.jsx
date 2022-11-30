@@ -58,14 +58,14 @@ const BarChart = () => {
     <>
     <Nav/>
     <Hero />
-    <div className='flex justify-evenly'>
+    <div className='flex flex-row justify-evenly'>
     <div>
-    <h1 class="mb-4 text-m font-bold text-gray-900 dark:text-white md:text-5xl lg:text-l pt-2"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Offense Stats</span></h1>
-    <BarChartStats chartData={offensiveData} />
+      <h1 class="mb-4 text-m font-bold text-gray-900 dark:text-white md:text-5xl lg:text-l pt-2"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Offense Stats</span></h1>
+      <BarChartStats chartData={offensiveData} />
     </div>
     <div>
-    <h1 class="mb-4 text-m font-bold text-gray-900 dark:text-white md:text-5xl lg:text-l pt-2"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Defense Stats</span></h1>
-    <BarChartStats chartData={defensiveData} />
+      <h1 class="mb-4 text-m font-bold text-gray-900 dark:text-white md:text-5xl lg:text-l pt-2"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Defense Stats</span></h1>
+      <BarChartStats chartData={defensiveData} />
     </div>
     </div>
     <Footer />

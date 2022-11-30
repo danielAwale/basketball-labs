@@ -2,6 +2,9 @@ import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import registerImg from '../assets/register.jpeg';
+import Nav from './Nav';
+import Footer from './Footer';
+import "./styles/nav.css";
 
 const Register = ({ setAuth }) => {
 
@@ -48,6 +51,7 @@ const Register = ({ setAuth }) => {
 
   return (
     <Fragment>
+      <Nav />
       <div className='grid grid-cols-1 sm:grid-cols-2 h-screen w-full'>
         <div className='hidden sm:block'>
           <img className='w-full h-full object-cover' src={registerImg} alt="" />
@@ -58,15 +62,15 @@ const Register = ({ setAuth }) => {
             <h2 className='text-4xl font-bold text-center py-6'>Basketball Labs</h2>
             <div className='flex flex-col py-2'>
               <label>Username</label>
-              <input className='border p-2' type="text" name="name" placeholder="Name" value={name} onChange={e => onChange(e)}/>
+              <input className='border p-2' type="text" name="name" placeholder="Name" value={name} onChange={e => onChange(e)} />
             </div>
             <div className='flex flex-col py-2'>
               <label>Email</label>
-              <input className='border p-2' name ="email" type="email" placeholder="Email" value={email} onChange={e => onChange(e)}/>
+              <input className='border p-2' name="email" type="email" placeholder="Email" value={email} onChange={e => onChange(e)} />
             </div>
             <div className='flex flex-col py-2'>
               <label>Password</label>
-              <input className='border p-2' name ="password" type="password" placeholder="Password" value={password} onChange={e => onChange(e)} />
+              <input className='border p-2' name="password" type="password" placeholder="Password" value={password} onChange={e => onChange(e)} />
             </div>
             <button className='border w-full my-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white'>Sign In</button>
             <div className='flex justify-between'>
@@ -76,6 +80,7 @@ const Register = ({ setAuth }) => {
           </form>
         </div>
       </div>
+      <Footer />
     </Fragment>
   )
 };

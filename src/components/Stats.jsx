@@ -31,17 +31,28 @@ const Stats = () => {
     <Nav />
     <Hero />
     <div class="flex flex-col">
-    <div>
+    <div className="px-5 bg-gray-100 overflow-auto">
       <div class="py-1 inline-block min-w-full sm:px-6 lg:px-8">
         <div class="overflow-hidden">
+        {/* <div className='flex '>
+        <div>
+          <h1 class="mb-4 text-m font-bold text-gray-900 dark:text-white md:text-3xl lg:text-l pt-2"><span class="text-transparent bg-clip-text bg-gradient-to-r to-orange-500 from-orange-500">Offense</span></h1>
+        </div>
+        <div>
+          <h1 class="mb-4 text-m font-bold text-gray-900 dark:text-white md:text-3xl lg:text-l pt-2"><span class="text-transparent bg-clip-text bg-gradient-to-r to-yellow-500 from-yellow-500">Defense</span></h1>
+        </div> 
+        <div>
+          <h1 class="mb-4 text-m font-bold text-gray-900 dark:text-white md:text-3xl lg:text-l pt-2"><span class="text-transparent bg-clip-text bg-gradient-to-r to-lime-500 from-lime-500">%</span></h1>
+        </div>
+        </div> */}
           <table class="min-w-full">
             <thead class="bg-white border-b">
-              <tr>
-                <th scope="col" class="text-xl font-medium text-gray-900 px-6 py-4 text-left">
-                  Player
+              <tr className='bg-gray-300'>
+                <th scope="col" class="text-xl font-medium text-gray-900 px-6 py-4 text-left hover:bg-gray-300">
+                  Avatars
                 </th>
                 <th scope="col" class="text-xl font-medium text-gray-900 px-6 py-4 text-left">
-                  Player
+                  Players
                 </th>
                 <th scope="col" class="text-xl font-medium text-gray-900 px-6 py-4 text-left">
                   Points
@@ -76,39 +87,36 @@ const Stats = () => {
             <tbody>
               <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                 <td class="text-xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <div class="relative w-16 h-16">
-                <img class="rounded-full border border-gray-100 shadow-sm" src={playersImage[index]} alt="" />
-                <div class="absolute top-0 right-0 h-3 w-3 my-1 border-2 border-white rounded-full z-2"></div>
-               </div>
+                <img class="w-20 h-16 rounded" src={playersImage[index]} alt="Default avatar" />
                 </td>
                 <td class="text-4xl text-gray-900 font-extrabold px-6 py-4 whitespace-nowrap">
                   {item.first_name} {item.last_name}
                 </td>
-                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
+                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-orange-500">
                   {item.points}
                 </td>
-                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
+                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-orange-500">
                   {item.assists}
                 </td>
-                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
+                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-orange-500">
                   {item.rebounds}
                 </td>
-                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
+                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-yellow-500">
                   {item.turnovers}
                 </td>
-                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
+                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-yellow-500">
                   {item.steals}
                 </td>
-                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
+                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-yellow-500">
                   {item.blocks}
                 </td>
-                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
+                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-lime-500">
                   {item.field_goal_percentage}
                 </td>
-                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
+                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-lime-500">
                   {item.free_throw_percentage}
                 </td>
-                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
+                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-lime-500">
                   {item.three_points_made}
                 </td>
               </tr>

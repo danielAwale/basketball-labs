@@ -19,7 +19,7 @@ const BarChart = () => {
         label: 'Player Assists',
         data: PlayerData.map(item => item.assists),
         borderColor: '#36A2EB',
-        backgroundColor: 'teal',
+        backgroundColor: 'red',
       },
       {
         label: 'Player Rebounds',

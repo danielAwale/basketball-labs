@@ -29,6 +29,8 @@ function App() {
     setIsAuthenicated(boolean);
   };
 
+  
+
   const router = createBrowserRouter([
     {
       path: "/",

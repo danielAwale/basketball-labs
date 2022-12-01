@@ -22,6 +22,9 @@ import BarChartStats from "./components/BarChartStats";
 import News from "./components/News";
 import BarChart from "./components/BarChart";
 import Error from "./components/Error";
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 
 

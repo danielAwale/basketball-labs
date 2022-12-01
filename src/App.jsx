@@ -1,5 +1,3 @@
-import React, { Fragment, useState, useEffect } from "react";
-
 import {
   createBrowserRouter,
   RouterProvider,
@@ -9,7 +7,7 @@ import {
   Navigate
 } from "react-router-dom";
 
-import './App.css';
+import React, { Fragment, useState, useEffect, Dimensions } from "react";
 
 import Home from "./components/Home";
 import Login from "./components/Login";
@@ -26,6 +24,8 @@ import News from "./components/News";
 import BarChart from "./components/BarChart";
 import Error from "./components/Error";
 import 'react-toastify/dist/ReactToastify.css';
+import Featured_Players_2 from "./components/Featured_Players_2";
+import './App.css';
 
 
 
@@ -97,6 +97,10 @@ function App() {
     isAuth()
   })
 
+  // const windowWidth = Dimensions.get('window').width;
+  // const windowHeight = Dimensions.get('window').height; 
+  // const windowDimensions = {width: windowWidth, height: windowHeight}
+  // console.log(windowDimensions);
 
   return (
     <div className="app">

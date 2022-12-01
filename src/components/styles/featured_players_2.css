@@ -1,0 +1,46 @@
+.button-back {
+  position: static;
+  left: 26%;
+  scale: 300%;
+  stroke: rgb(166, 166, 166);
+}
+
+.button-forward {
+  position: static;
+  right: 26%;
+  scale: 300%;
+  stroke: rgb(166, 166, 166);
+}
+
+.player-photo {
+  object-fit: cover;
+  height: 15em;
+  border: solid;
+  background-color: white;
+}
+
+.all-player-tiles {
+  display: flex;
+  flex-direction: row;
+
+  background-color: rgb(17 24 39);
+}
+
+.player-description-box {
+  border: solid;
+}
+
+.entire-player-tile {
+  max-height: 100%;
+  width: max-content;
+}
+
+.carousel {
+  background-color: rgb(17 24 39);
+  border-radius: 30px;
+  width: 120%;
+}
+
+.featured-stat-info {
+  font-size: 100%;
+}

@@ -1,0 +1,23 @@
+.player-photo {
+  object-fit: cover;
+  height: 15em;
+  border: solid;
+  background-color: white;
+}
+
+.all-player-tiles {
+  display: flex;
+  flex-direction: row;
+
+  background-color: rgb(17 24 39);
+}
+
+.player-description-box {
+  border: solid;
+}
+
+
+
+
+
+

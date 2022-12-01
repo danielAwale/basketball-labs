@@ -1,8 +1,8 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, Dimensions } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import './App.css';
 import BarChartStats from './components/BarChartStats';
-
+// import { Dimensions } from 'react-native';
 
 //components
 import Footer from './components/Footer';
@@ -16,6 +16,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Stats from './components/Stats';
 import { PlayerData } from './Data'
+import Featured_Players_2 from "./components/Featured_Players_2";
 
 function App() {
 
@@ -43,6 +44,11 @@ function App() {
     ]
   })
 
+  // const windowWidth = Dimensions.get('window').width;
+  // const windowHeight = Dimensions.get('window').height; 
+  // const windowDimensions = {width: windowWidth, height: windowHeight}
+  // console.log(windowDimensions);
+
   return (
     <Fragment>
       <Router>
@@ -56,10 +62,8 @@ function App() {
       </Router>
       <div className="App">
         <Nav />
-        <Hero />
-        <News />
-        <Stats />
-        <BarChartStats chartData={userData} />
+        <Featured_Players_2 />
+        <Watchlist />
         <Footer />
       </div>
     </Fragment>

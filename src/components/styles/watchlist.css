@@ -1,0 +1,40 @@
+.entire-watchlist {
+  display: flex;
+  flex-direction: column;
+
+  background-color: rgb(17 24 39);
+
+  max-width: 100%;
+  margin: 20px;
+
+  border-radius: 30px;
+}
+
+
+.title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: 300%;
+  color: white;
+
+  align-items: center;
+  margin: 10px;
+
+  height: 1.4em;
+  width: 49%;
+
+  padding-left: 28px;
+  padding-right: 20px;
+
+  border-radius: 30px 10px 10px 10px;
+  background: linear-gradient(45deg, rgb(39, 56, 91), transparent);
+}
+
+.all-watched-players {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

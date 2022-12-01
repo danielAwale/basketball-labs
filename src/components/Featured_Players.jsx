@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import "./styles/featured_player.css";
+import "./styles/featured_players.css";
 
 const Featured_Players = () => {
   return (

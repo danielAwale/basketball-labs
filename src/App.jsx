@@ -27,8 +27,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Featured_Players_2 from "./components/Featured_Players_2";
 import './App.css';
 
-
-
 // toast.configure();
 
 function App() {
@@ -86,7 +84,7 @@ function App() {
 
       const parseRes = await response.json();
 
-      parseRes === true ? setIsAuthenicated(true):setIsAuthenicated(false);
+      parseRes === true ? setIsAuthenicated(true) : setIsAuthenicated(false);
 
     } catch (error) {
       console.error(error.message);

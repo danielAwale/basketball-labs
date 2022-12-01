@@ -1,47 +1,100 @@
-import React, { Fragment, useState, useEffect, Dimensions } from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import './App.css';
-import BarChartStats from './components/BarChartStats';
-// import { Dimensions } from 'react-native';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  Navigate
+} from "react-router-dom";
 
-//components
-import Footer from './components/Footer';
-import Hero from './components/Hero';
-import Navbar from './components/Navbar';
-import News from './components/News';
-import Nav from './components/Nav';
-// import Featured_Players from './components/Featured_Players';
-import Watchlist from './components/Watchlist';
-import Login from './components/Login';
-import Register from './components/Register';
-import Stats from './components/Stats';
-import { PlayerData } from './Data'
+import React, { Fragment, useState, useEffect, Dimensions } from "react";
+
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Stats from "./components/Stats";
+import Register from "./components/Register";
+import Watchlist from "./components/Watchlist";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
+// import FeaturedPlayers from "./components/FeaturedPlayers";
+import {PlayerData} from "./Data"
+import BarChartStats from "./components/BarChartStats";
+import News from "./components/News";
+import BarChart from "./components/BarChart";
+import Error from "./components/Error";
+import 'react-toastify/dist/ReactToastify.css';
 import Featured_Players_2 from "./components/Featured_Players_2";
+import './App.css';
+
+
+
+// toast.configure();
 
 function App() {
-
   const [isAuthenicated, setIsAuthenicated] = useState(false);
 
   const setAuth = (boolean) => {
     setIsAuthenicated(boolean);
   };
 
-  const [userData, setUserData] = useState({
-    labels: PlayerData.map(item => item.first_name),
-    datasets: [
-      {
-        label: 'Player Points',
-        data: PlayerData.map(item => item.points)
-      },
-      {
-        label: 'Player Assists',
-        data: PlayerData.map(item => item.assists)
-      },
-      {
-        label: 'Player Rebounds',
-        data: PlayerData.map(item => item.rebounds)
-      }
-    ]
+  const doSomething = (component) => {
+    if(!isAuthenicated) {
+     return <Navigate to="/login"/>
+    } 
+    return component
+  }
+
+  const doSomethingAgain = () => {
+    if(!isAuthenicated) {
+     return <Navigate to="/login"/>
+    } 
+    return 
+  }
+
+  const doSomethingAnd = () => {
+    if(!isAuthenicated) {
+     return <Navigate to="/register"/>
+    } 
+    return <Login />
+  }
+
+  
+  // return (
+  //<>
+  // <Router>
+  //<Switch>
+  // <Route path="/"><Home /></Route>
+  // <Route path="/login" render={props => !isAuthenicated ? <Login {...props} setAuth={setAuth} /> : <Redirect to="watchlist" />} />
+  // <Route path="/register" render={props => !isAuthenicated ? <Register {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
+  //<Route path="/watchlist" render={props => isAuthenicated ? <Watchlist {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
+  //<Route path="/stats"><Stats /></Route>
+  //<Route path="/graphs"><BarChartStats chartData={userData}/></Route>
+  //</Switch> 
+  //</Router>
+        
+  //</>
+  // );
+
+  async function isAuth() {
+    try {
+
+      const response = await fetch("http://localhost:5000/auth/is-verify", {
+        method: "GET",
+        headers: { jwt_token: localStorage.token }
+      });
+
+      const parseRes = await response.json();
+
+      parseRes === true ? setIsAuthenicated(true):setIsAuthenicated(false);
+
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  useEffect(() => {
+    isAuth()
   })
 
   // const windowWidth = Dimensions.get('window').width;
@@ -50,24 +103,20 @@ function App() {
   // console.log(windowDimensions);
 
   return (
-    <Fragment>
+    <div className="app">
       <Router>
-        <div className="container">
-          <Switch>
-            <Route exact path="/login" render={props => !isAuthenicated ? <Login {...props} setAuth={setAuth} /> : <Redirect to="/watchlist" />} />
-            <Route exact path="/register" render={props => !isAuthenicated ? <Register {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
-            <Route exact path="/watchlist" render={props => isAuthenicated ? <Watchlist {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
-          </Switch>
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/stats" element={<Stats />} />
+          <Route path="/graphs" element={<BarChart/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/login" element={doSomething(<Login/>)} />
+          <Route path="/watchlist" element={doSomething(<Watchlist/>)} />
+          <Route path="*" element={<Error/>} />
+        </Routes>
       </Router>
-      <div className="App">
-        <Nav />
-        <Featured_Players_2 />
-        <Watchlist />
-        <Footer />
-      </div>
-    </Fragment>
-  );
+    </div>
+  )
 }
 
 export default App;

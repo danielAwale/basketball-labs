@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import "./styles/watchlist.css";
 import "./styles/featured_players_2.css";
-
+import { toast } from "react-toastify";
 
 const Watchlist = ({ setAuth }) => {
 
@@ -11,12 +11,10 @@ const Watchlist = ({ setAuth }) => {
     try {
       const response = await fetch("http://localhost:5000/watchlist/", {
         method: "GET",
-        headers: { token: localStorage.jwt_token }
+        headers: { jwt_token: localStorage.token }
       });
       console.log(response);
       const parseRes = await response.json();
-
-      console.log(parseRes);
 
       setName(parseRes.user_name)
 
@@ -29,11 +27,12 @@ const Watchlist = ({ setAuth }) => {
     e.preventDefault();
     localStorage.removeItem("token");
     setAuth(false);
+    toast.success("Logged Out Successfully!")
   }
 
   useEffect(() => {
     getName();
-  });
+  }, []);
 
   const smapleTile = (
     <div tabindex="0" className="focus:outline-none">

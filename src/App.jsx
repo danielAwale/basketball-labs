@@ -3,6 +3,9 @@ import {
   createBrowserRouter,
   RouterProvider,
   Route,
+  BrowserRouter as Router,
+  Routes,
+  Navigate
 } from "react-router-dom";
 
 import Home from "./components/Home";
@@ -29,60 +32,58 @@ function App() {
     setIsAuthenicated(boolean);
   };
 
-  
+  const doSomething = (component) => {
+    if(!isAuthenicated) {
+     return <Navigate to="/login"/>
+    } 
+    return component
+  }
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/stats",
-      element: <Stats />
-    },
-    {
-      path: "/graphs",
-      element: <BarChart />
-    }, 
-    {
-      path: "/register",
-      element: <Register />
-    },
-    {
-      path: "/login",
-      element: <Login />
-    },
-    {
-      path: "/watchlist",
-      element: <Watchlist />
-    }, 
-    {
-      path: "*",
-      element: <Error />
-    }
-  ]);
+  const doSomethingAgain = () => {
+    if(!isAuthenicated) {
+     return <Navigate to="/login"/>
+    } 
+    return 
+  }
+
+  const doSomethingAnd = () => {
+    if(!isAuthenicated) {
+     return <Navigate to="/register"/>
+    } 
+    return <Login />
+  }
+
+  
   // return (
-  //   <>
-  //   <Router>
-  //     {/* <Nav />
-  //       <Hero /> */}
-  //         {/* <Switch>
-  //           <Route path="/"><Home /></Route>
-  //           <Route path="/login" render={props => !isAuthenicated ? <Login {...props} setAuth={setAuth} /> : <Redirect to="/watchlist" />} />
-  //           <Route path="/register" render={props => !isAuthenicated ? <Register {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
-  //           <Route path="/watchlist" render={props => isAuthenicated ? <Watchlist {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
-  //           <Route path="/stats"><Stats /></Route>
-  //           <Route path="/graphs"><BarChartStats chartData={userData}/></Route>
-  //         </Switch> */}
-  //         {/* <News />
-  //         <Footer /> */}
-  //         </Router>
+  //<>
+  // <Router>
+  //<Switch>
+  // <Route path="/"><Home /></Route>
+  // <Route path="/login" render={props => !isAuthenicated ? <Login {...props} setAuth={setAuth} /> : <Redirect to="watchlist" />} />
+  // <Route path="/register" render={props => !isAuthenicated ? <Register {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
+  //<Route path="/watchlist" render={props => isAuthenicated ? <Watchlist {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
+  //<Route path="/stats"><Stats /></Route>
+  //<Route path="/graphs"><BarChartStats chartData={userData}/></Route>
+  //</Switch> 
+  //</Router>
         
-  //   </>
+  //</>
   // );
 
   return (
-    <RouterProvider router={router} />
+    <div className="app">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/stats" element={<Stats />} />
+          <Route path="/graphs" element={<BarChart/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/login" element={doSomething(<Login/>)} />
+          <Route path="/watchlist" element={doSomething(<Watchlist/>)} />
+          <Route path="*" element={<Error/>} />
+        </Routes>
+      </Router>
+    </div>
   )
 }
 

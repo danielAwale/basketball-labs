@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 const Watchlist = ({ setAuth }) => {
 
@@ -13,8 +14,6 @@ const Watchlist = ({ setAuth }) => {
       console.log(response);
       const parseRes = await response.json();
 
-      console.log(parseRes);
-
       setName(parseRes.user_name)
 
     } catch (error) {
@@ -26,11 +25,12 @@ const Watchlist = ({ setAuth }) => {
     e.preventDefault();
     localStorage.removeItem("token");
     setAuth(false);
+    toast.success("Logged Out Successfully!")
   }
 
   useEffect(() => {
     getName();
-  });
+  }, []);
 
   return (
     <Fragment>

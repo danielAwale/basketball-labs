@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -7,6 +8,8 @@ import {
   Routes,
   Navigate
 } from "react-router-dom";
+
+import './App.css';
 
 import Home from "./components/Home";
 import Login from "./components/Login";
@@ -25,8 +28,8 @@ import Error from "./components/Error";
 import 'react-toastify/dist/ReactToastify.css';
 
 
-// toast.configure();
 
+// toast.configure();
 
 function App() {
   const [isAuthenicated, setIsAuthenicated] = useState(false);
@@ -72,6 +75,28 @@ function App() {
         
   //</>
   // );
+
+  async function isAuth() {
+    try {
+
+      const response = await fetch("http://localhost:5000/auth/is-verify", {
+        method: "GET",
+        headers: { jwt_token: localStorage.token }
+      });
+
+      const parseRes = await response.json();
+
+      parseRes === true ? setIsAuthenicated(true):setIsAuthenicated(false);
+
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  useEffect(() => {
+    isAuth()
+  })
+
 
   return (
     <div className="app">

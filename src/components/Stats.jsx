@@ -1,8 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 
 const Stats = () => {
   const [statsData, setStatsData] = useState([]);
+  const [watchlist, setWatchlist] = useState([]);
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    try{
+      const response = await fetch("http://localhost:3000") ({
+        method: "POST",
+        headers: {"Content-Type": "application/json"}
+        //body: 
+      });
+      console.log(response);
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
 
   useEffect(() => {
     fetch('http://localhost:5000/filter')
@@ -19,6 +35,9 @@ const Stats = () => {
           <table class="min-w-full">
             <thead class="bg-white border-b">
               <tr>
+                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                  Picture
+                </th>
                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                   Player
                 </th>
@@ -49,40 +68,49 @@ const Stats = () => {
                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                   3PM%
                 </th>
+                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                  Add to Watchlist
+                </th>
               </tr>
             </thead>
             {statsData.map(item => { return (
             <tbody>
               <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {item.first_name} {item.last_name}
+                  <img src={item.picture} />
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {item.points}
+                  <a href="/player">{item.first_name} {item.last_name}</a>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {item.assists}
+                  <a href="/points">{item.points}</a>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {item.rebounds}
+                  <a href="/assists">{item.assists}</a>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {item.turnovers}
+                <a href="/rebounds">{item.rebounds}</a>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {item.steals}
+                <a href="/turnovers">{item.turnovers}</a>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {item.blocks}
+                <a href="/steals">{item.steals}</a>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {item.field_goal_percentage}
+                <a href="/blocks">{item.blocks}</a>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {item.free_throw_percentage}
+                <a href="/fgp">{item.field_goal_percentage}</a>
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {item.three_points_made}
+                <a href="/ftp">{item.free_throw_percentage}</a>
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <a href="/tpm">{item.three_points_made}</a>
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  <button class="btn btn-success" onClick={handleClick}>Add Player</button>
                 </td>
               </tr>
             </tbody>

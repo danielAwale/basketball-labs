@@ -16,8 +16,10 @@ import Featured_Players from './components/Featured_Players';
 import Watchlist from './components/Watchlist';
 import Login from './components/Login';
 import Register from './components/Register';
-//import Stats from './components/Stats';
-import { PlayerData } from './Data'
+import Stats from './components/Stats';
+import { PlayerData } from './Data';
+//import AddWatchlist from './components/AddWatchlist';
+import Player from "./components/Player";
 
 toast.configure();
 
@@ -73,6 +75,7 @@ function App() {
       <Router>
         <div className="container">
           <Switch>
+            <Route exact path="/player" render={props => <Player />} />
             <Route exact path="/login" render={props => !isAuthenicated ? <Login {...props} setAuth={setAuth} /> : <Redirect to="/watchlist" />} />
             <Route exact path="/register" render={props => !isAuthenicated ? <Register {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
             <Route exact path="/watchlist" render={props => isAuthenicated ? <Watchlist {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
@@ -83,7 +86,7 @@ function App() {
         <Nav />
         <Featured_Players />
         <News />
-        {/* <Stats /> */}
+        <Stats />
         <BarChartStats chartData={userData} />
         <Footer />
       </div>

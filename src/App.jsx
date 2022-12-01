@@ -25,7 +25,7 @@ import Error from "./components/Error";
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
+// toast.configure();
 
 
 function App() {

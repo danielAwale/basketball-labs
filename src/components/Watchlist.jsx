@@ -1,9 +1,10 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import "./styles/watchlist.css";
 import "./styles/featured_players_2.css";
 import { toast } from "react-toastify";
 
-const Watchlist = ({ setAuth }) => {
+const Watchlist = ({ isAuthenticated, setAuth }) => {
 
   const [name, setName] = useState("");
 
@@ -66,8 +67,10 @@ const Watchlist = ({ setAuth }) => {
         </div>
       </div>
   );
-
+    
+  if(isAuthenticated) {
   return (
+
     <Fragment>
       <div className="entire-watchlist">
         <h1 className="title">Watchlist {name}</h1>
@@ -80,7 +83,8 @@ const Watchlist = ({ setAuth }) => {
           </div>
       </div>
     </Fragment>
-  );
+  ) };
+  return <Navigate to="/login" />
   // return (
   //   <Fragment>
   //     <h1>Watchlist {name}</h1>

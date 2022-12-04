@@ -5,7 +5,6 @@ import Hero from './Hero'
 import Footer from './Footer'
 import News from './News'
 
-
 const Home = () => {
   return (
     <>
@@ -13,7 +12,6 @@ const Home = () => {
     <Hero />
     <News />
     <Footer />
-   
     </>
   )
 }

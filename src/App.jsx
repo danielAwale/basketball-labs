@@ -37,24 +37,6 @@ function App() {
     setIsAuthenicated(boolean);
   };
   
-
-  
-  // return (
-  //<>
-  // <Router>
-  //<Switch>
-  // <Route path="/"><Home /></Route>
-  // <Route path="/login" render={props => !isAuthenicated ? <Login {...props} setAuth={setAuth} /> : <Redirect to="watchlist" />} />
-  // <Route path="/register" render={props => !isAuthenicated ? <Register {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
-  //<Route path="/watchlist" render={props => isAuthenicated ? <Watchlist {...props} setAuth={setAuth} /> : <Redirect to="/login" />} />
-  //<Route path="/stats"><Stats /></Route>
-  //<Route path="/graphs"><BarChartStats chartData={userData}/></Route>
-  //</Switch> 
-  //</Router>
-        
-  //</>
-  // );
-
   async function isAuth() {
     try {
 
@@ -76,13 +58,8 @@ function App() {
     isAuth()
   })
 
-  // const windowWidth = Dimensions.get('window').width;
-  // const windowHeight = Dimensions.get('window').height; 
-  // const windowDimensions = {width: windowWidth, height: windowHeight}
-  // console.log(windowDimensions);
-
   return (
-    <div className="app">
+    <>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -94,7 +71,7 @@ function App() {
           <Route path="*" element={<Error/>} />
         </Routes>
       </Router>
-    </div>
+    </>
   )
 }
 

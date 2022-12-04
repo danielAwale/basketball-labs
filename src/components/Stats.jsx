@@ -11,20 +11,7 @@ const Stats = () => {
     .then(response => response.json())
     .then(data => setStatsData(data))
     .catch(error => console.log(error.message))
-  },[])
-
-  const playersImage = [
-    'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3134881.png', 
-    'https://a1.espncdn.com/combiner/i?img=%2Fi%2Fheadshots%2Fnba%2Fplayers%2Ffull%2F4066262.png',
-    'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4396991.png',
-    'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4066457.png',
-    'https://a.espncdn.com/i/headshots/nba/players/full/3468.png',
-    'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/4240.png',
-    'https://a.espncdn.com/i/headshots/nba/players/full/6583.png',
-    'https://a.espncdn.com/i/headshots/nba/players/full/1966.png',
-    'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2426.png',
-    'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3134881.png'
-  ]
+  },[setStatsData])
 
   return (
     <>
@@ -87,9 +74,9 @@ const Stats = () => {
             <tbody>
               <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                 <td class="text-xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <img class="w-20 h-16 rounded" src={playersImage[index]} alt="Default avatar" />
+                <img class="w-20 h-16 rounded" src={item.picture} alt="Default avatar" />
                 </td>
-                <td class="text-4xl text-gray-900 font-extrabold px-6 py-4 whitespace-nowrap">
+                <td class="text-2xl text-gray-900 font-extrabold px-6 py-4 whitespace-nowrap">
                   {item.first_name} {item.last_name}
                 </td>
                 <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-orange-500">

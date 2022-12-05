@@ -4,19 +4,17 @@ import Nav from './Nav'
 import Hero from './Hero'
 import Footer from './Footer'
 import News from './News'
-
+import "./styles/home.css"
 
 const Home = () => {
   return (
     <>
-    <div class="flex flex-col h-screen justify-between">
-    <Nav/>
-   <main>
-    <Hero />
-    <News />
-   </main>
-  <footer><Footer /></footer>
-  </div> 
+    <Nav />
+    <div class="flex-wrapper">
+      <Hero />
+    <div><News /></div>
+    <div class="footer"><Footer /></div>
+    </div>
     </>
   )
 }

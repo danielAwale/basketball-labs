@@ -1,11 +1,12 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import "./styles/watchlist.css";
 import "./styles/featured_players_2.css";
 import { toast } from "react-toastify";
 import Nav from './Nav';
 import Footer from './Footer';
 
-const Watchlist = ({ setAuth }) => {
+const Watchlist = ({ isAuthenticated, setAuth }) => {
 
   const [name, setName] = useState("");
 
@@ -68,8 +69,10 @@ const Watchlist = ({ setAuth }) => {
       </div>
     </div>
   );
-
+    
+  if(isAuthenticated) {
   return (
+
     <Fragment>
       <Nav />
       <div className="entire-watchlist">
@@ -84,7 +87,8 @@ const Watchlist = ({ setAuth }) => {
       </div>
       <Footer />
     </Fragment>
-  );
+  ) };
+  return <Navigate to="/login" />
   // return (
   //   <Fragment>
   //     <h1>Watchlist {name}</h1>

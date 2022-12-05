@@ -23,6 +23,7 @@ import BarChartStats from "./components/BarChartStats";
 import News from "./components/News";
 import BarChart from "./components/BarChart";
 import Error from "./components/Error";
+import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import Featured_Players_2 from "./components/Featured_Players_2";
@@ -63,12 +64,13 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Featured_Players_2 />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/graphs" element={<BarChart/>} />
           <Route path="/register" element={<Register setAuth={setAuth}/>} />
           <Route path="/login" element={<Login setAuth={setAuth}/>} />
           <Route path="/watchlist" element={<Watchlist setAuth={setAuth} isAuthenticated={isAuthenicated}/>} />
+
           <Route path="*" element={<Error/>} />
         </Routes>
       </Router>

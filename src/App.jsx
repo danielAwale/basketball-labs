@@ -23,23 +23,10 @@ import BarChartStats from "./components/BarChartStats";
 import News from "./components/News";
 import BarChart from "./components/BarChart";
 import Error from "./components/Error";
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Featured_Players_2 from "./components/Featured_Players_2";
 import './App.css';
-
-
-//components
-import Footer from './components/Footer';
-import Hero from './components/Hero';
-import Navbar from './components/Navbar';
-import News from './components/News';
-import Nav from './components/Nav';
-import Featured_Players from './components/Featured_Players';
-import Watchlist from './components/Watchlist';
-import Login from './components/Login';
-import Register from './components/Register';
-//import Stats from './components/Stats';
-import { PlayerData } from './Data'
 
 toast.configure();
 
@@ -121,7 +108,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/graphs" element={<BarChart/>} />
-          <Route path="/register" element={<Register/>} />
+          <Route path="/register" element={<Register setAuth={setAuth}/>} />
           <Route path="/login" element={doSomething(<Login/>)} />
           <Route path="/watchlist" element={doSomething(<Watchlist/>)} />
           <Route path="*" element={<Error/>} />

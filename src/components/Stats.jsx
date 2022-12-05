@@ -2,27 +2,23 @@ import React, { useEffect, useState } from 'react'
 import Nav from './Nav';
 import Hero from './Hero';
 import Footer from './Footer';
-import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 
 const Stats = () => {
   const [statsData, setStatsData] = useState([]);
-  const [watchlist, setWatchlist] = useState([]);
 
-  const handleClick = async (e) => {
+  const handleClick = (e, playerId) => {
     e.preventDefault();
-    try{
-      const response = await fetch("http://localhost:3000") ({
+    console.log(playerId);
+    fetch(`http://localhost:5000/filter/${playerId}`, {
         method: "POST",
-        headers: {"Content-Type": "application/json"}
-        //body: 
-      });
-      console.log(response);
-    } catch (err) {
-      console.error(err.message);
+        // headers: {"Content-Type": "application/json"}, 
+        body: JSON.stringify({playerId})
+      })
+    .then(response => console.log(response))
+    .catch(error => console.log(error.message))
     }
-  }
 
   useEffect(() => {
     fetch('http://localhost:5000/filter')
@@ -43,6 +39,8 @@ const Stats = () => {
     'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2426.png',
     'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3134881.png'
   ]
+
+  console.log(statsData);
 
   return (
     <>
@@ -99,10 +97,7 @@ const Stats = () => {
                 <th scope="col" class="text-xl font-medium text-gray-900 px-6 py-4 text-left">
                   3PM%
                 </th>
-                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                  Add to Watchlist
-                </th>
-                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-center">
                   Add to Watchlist
                 </th>
               </tr>
@@ -142,6 +137,9 @@ const Stats = () => {
                 </td>
                 <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-lime-500">
                   {item.three_points_made}
+                </td>
+                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-lime-500">
+                  <button class="btn btn-success" onClick={e => handleClick(e, item.id)}>Add Player</button>
                 </td>
               </tr>
             </tbody>

@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import "./styles/featured_players_2.css";
-import Nav from './Nav';
-import Footer from './Footer';
 
 const Featured_Players_2 = () => {
 
@@ -61,7 +59,7 @@ const Featured_Players_2 = () => {
                     <h2 tabindex="0" className="focus:outline-none text-lg font-semibold">{player.first_name} {player.last_name}</h2>
                     <p tabindex="0" className="focus:outline-none text-xs text-gray-600 pl-5">{player.team_name}</p>
                   </div>
-                  <p tabindex="0" className="focus:outline-none text-xs text-gray-600 mt-2 featured-stat-info"><br />Points: {player.points}<br /><br />Assists: {player.assists}<br /><br />Rebounds: {player.rebounds}%</p>
+                  <p tabindex="0" className="focus:outline-none text-xs text-gray-600 mt-2 featured-stat-info"><br />Points: {player.points}<br /><br />Assists: {player.assists}<br /><br />Rebounds: {player.rebounds}</p>
                   <div className="flex mt-4">
                   </div>
                 </div>
@@ -78,7 +76,6 @@ const Featured_Players_2 = () => {
 
   return (
     <>
-      <Nav />
       <div className="container mx-auto">
         <div className="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
           {/* Carousel for desktop and large size devices */}
@@ -268,7 +265,6 @@ const Featured_Players_2 = () => {
           </CarouselProvider>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

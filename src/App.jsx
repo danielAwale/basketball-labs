@@ -23,7 +23,7 @@ import BarChartStats from "./components/BarChartStats";
 import News from "./components/News";
 import BarChart from "./components/BarChart";
 import Error from "./components/Error";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Featured_Players_2 from "./components/Featured_Players_2";
 import './App.css';
@@ -105,7 +105,7 @@ function App() {
     <div className="app">
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Featured_Players_2 />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/graphs" element={<BarChart/>} />
           <Route path="/register" element={<Register/>} />

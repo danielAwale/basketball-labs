@@ -20,10 +20,11 @@ $light-grey: rgb(157, 157, 157);
   display: flex;
   justify-content: flex-start;
   height: auto;
-  width: 100px;
+  width: auto;
+  max-width: 100px;
   border-radius: 50%;
 
-  transition: 1s;
+  transition: 0.3s;
 
   margin: 15px;
 }
@@ -58,28 +59,26 @@ $light-grey: rgb(157, 157, 157);
   padding-top: 60px;
   padding-top: 1em;
 
-  margin-right: -1px;
-  margin-left: -1px;
+  margin: auto;
 
   height: auto;
   width: 140px;
 
+  transition: 0.3s;
 }
 
-.nav-buttons div {
+.website-title {
   font-family: 'Montserrat', sans-serif;
   height: auto;
   width: auto;
   color: black;
-  font-size: 300%;
+  font-size: max(3vw);
   text-align: center;
 
-  margin-right: auto;
   margin-top: auto;
   margin-bottom: auto;
 
   padding-left: 20px;
-  padding-right: 20px;
 }
 
 .icon-and-button {
@@ -93,7 +92,8 @@ $light-grey: rgb(157, 157, 157);
   border-bottom: none;
   border-color: black !important;
 
-  transition: 0.3s;
+  transition: scale 0.3s, font 0.3s;
+
   margin-left: -1px;
   margin-right: -1px;
 }
@@ -105,14 +105,95 @@ $light-grey: rgb(157, 157, 157);
   margin: auto;
 }
 
-.icon-and-button:hover{
+.icon-and-button:hover {
   background-color: white;
   scale: 1.15;
 }
 
-.icon-and-button:hover .icon{
+.icon-and-button:hover .icon {
   background-color: white;
+  color: rgb(250, 131, 32);
   scale: 1.5;
 }
 
+/* FOR THE SMALL NAV BAR DROPDOWN MENU */
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: white;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 
+  transition: 0.3s;
+  border-right: solid;
+  border-left: solid;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  
+  margin: auto;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: rgb(209, 209, 209);
+}
+
+.single-dropdown-section {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 130%;
+  min-width: 60%;
+}
+
+.dropdown-icon {
+  font-size: 120%;
+}
+
+#first-nav-button {
+  margin-left: auto !important;
+}
+
+.small-title {
+  font-size: 200%;
+}
+
+.tiny-dropdown {
+  margin-left: 20%;
+}

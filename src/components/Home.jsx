@@ -4,14 +4,17 @@ import Nav from './Nav'
 import Hero from './Hero'
 import Footer from './Footer'
 import News from './News'
+import "./styles/home.css"
 
 const Home = () => {
   return (
     <>
-    <Nav/>
-    <Hero />
-    <News />
-    <Footer />
+    <Nav />
+    <div class="flex-wrapper">
+      <Hero />
+    <div><News /></div>
+    <div class="footer"><Footer /></div>
+    </div>
     </>
   )
 }

@@ -26,6 +26,7 @@ import Error from "./components/Error";
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import Featured_Players_2 from "./components/Featured_Players_2";
+import FilterByPoints from "./components/FilterByPoints";
 import './App.css';
 
 toast.configure();

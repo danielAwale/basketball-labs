@@ -23,11 +23,12 @@ import BarChartStats from "./components/BarChartStats";
 import News from "./components/News";
 import BarChart from "./components/BarChart";
 import Error from "./components/Error";
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Featured_Players_2 from "./components/Featured_Players_2";
 import './App.css';
 
-// toast.configure();
+toast.configure();
 
 function App() {
   const [isAuthenicated, setIsAuthenicated] = useState(false);
@@ -108,8 +109,8 @@ function App() {
           <Route path="/stats" element={<Stats />} />
           <Route path="/graphs" element={<BarChart/>} />
           <Route path="/register" element={<Register/>} />
-          <Route path="/login" element={doSomething(<Login/>)} />
-          <Route path="/watchlist" element={doSomething(<Watchlist/>)} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/watchlist" element={<Watchlist/>} />
           <Route path="*" element={<Error/>} />
         </Routes>
       </Router>

@@ -43,6 +43,32 @@
   margin-bottom: 3%;
 }
 
+@media (max-width: 639px) {
+  .carousel {
+    margin-top: -4em;
+  }
+}
+
 .featured-stat-info {
   font-size: 100%;
+}
+
+.featured-title {
+  display: flex;
+  justify-content: center;
+
+  font-size: 1.4em;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+
+  background-color: rgb(17 24 39);
+  border-radius: 30px 30px 0px 0px;
+
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: -1.45em;
+  
+  padding: 15px;
+
+  width: fit-content;
 }

@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import registerImg from '../assets/register.jpeg';
 import Nav from './Nav';
@@ -77,7 +77,7 @@ const Register = ({ setAuth }) => {
             <button className='border w-full my-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white'>Sign In</button>
             <div className='flex justify-between'>
               <p className='flex items-center'><input className='mr-2' type="checkbox" />Remember Me</p>
-              <a href="/login" class="text-blue-500 underline">Already signed up?</a>
+              <NavLink to="/login" class="text-blue-500 underline">Already signed up?</NavLink>
             </div>
           </form>
         </div>
@@ -88,16 +88,3 @@ const Register = ({ setAuth }) => {
 };
 
 export default Register;
-
-// return (
-//   <Fragment>
-//     <h1 className="text-center my-5">Register</h1>
-//     <form onSubmit={onSubmitForm}>
-//       <input type="email" name="email" placeholder="email" className="form-control my-3" value={email} onChange={e => onChange(e)} />
-//       <input type="password" name="password" placeholder="password" className="form-control my-3" value={password} onChange={e => onChange(e)} />
-//       <input type="text" name="name" placeholder="name" className="form-control my-3" value={name} onChange={e => onChange(e)} />
-//       <button className="btn btn-success btn-block">Submit</button>
-//     </form>
-//     <Link to="/login">Login</Link>
-//   </Fragment>
-// );

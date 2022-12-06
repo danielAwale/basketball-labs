@@ -6,9 +6,8 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 import "./styles/home.css"
 
 
-const Stats = ( {userId, watchlist, fetchWatchlist} ) => {
+const Stats = ( {userId, watchlist, fetchWatchlist, isAuthenicated} ) => {
   const [statsData, setStatsData] = useState([]);
-  const [disabled, setDisabled] = useState(false);
 
   const addClick = (e, playerId, userId) => {
     e.preventDefault();
@@ -38,7 +37,6 @@ const Stats = ( {userId, watchlist, fetchWatchlist} ) => {
   },[setStatsData])
 
   const filterStats = (stat) => {
-    console.log("this is the", stat, statsData)
     const new1 = statsData.sort(function(a, b) {
       return b[stat] - a[stat];
     });
@@ -55,15 +53,6 @@ const Stats = ( {userId, watchlist, fetchWatchlist} ) => {
     return setStatsData([...new1])
 
   }
-
-  // const btn = document.getElementById("btn");
-  // btn.addEventListener("click", function handleClick() {
-  //   if (btn.textContent.includes("Add Player")) {
-  //     btn.textContent = "Remove Player"
-  //   } else {
-  //     btn.textContent = "Add Player"
-  //   }
-  // })
 
   return (
     <>
@@ -122,9 +111,10 @@ const Stats = ( {userId, watchlist, fetchWatchlist} ) => {
                 <th scope="col" class="text-xl font-medium text-gray-900 px-6 py-4 text-left">
                   3PM%
                 </th>
-                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-center">
+                {isAuthenicated &&
+                <th scope="col" class="text-xl font-medium text-gray-900 px-6 py-4 text-left">
                   Add to Watchlist
-                </th>
+                </th>}
               </tr>
             </thead>
             <tbody>
@@ -163,13 +153,14 @@ const Stats = ( {userId, watchlist, fetchWatchlist} ) => {
                 <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-lime-500">
                   {item.three_points_made}
                 </td>
+                {isAuthenicated && 
                 <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-lime-500">
                   {
                     watchlist.find((w) => w.player_id === item.id) 
                     ? <button class="btn btn-danger" onClick={e => deleteClick(e, item.id, userId)}>Remove Player</button>
                     : <button id="btn" class="btn btn-success" onClick={e => addClick(e, item.id, userId)}>Add Player</button>
                   }
-                </td>
+                </td>}
               </tr>
                )}) : <div role="status" className='text-center'>
                <svg aria-hidden="true" className="mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none"      xmlns="http://www.w3.org/2000/svg">

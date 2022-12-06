@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./styles/watchlist.css";
 import "./styles/featured_players_2.css";
 import { toast } from "react-toastify";
@@ -8,12 +8,13 @@ import Footer from './Footer';
 import FeaturedPlayer from './FeaturedPlayer';
 
 const Watchlist = ({ isAuthenticated, setAuth, watchlist }) => {
+  const navigate = useNavigate();
 
   const [name, setName] = useState("");
 
   async function getName() {
     try {
-      const response = await fetch("http://localhost:5000/watchlist/", {
+      const response = await fetch("http://localhost:5000/watchlist/1", {
         method: "GET",
         headers: { jwt_token: localStorage.token }
       });
@@ -30,14 +31,17 @@ const Watchlist = ({ isAuthenticated, setAuth, watchlist }) => {
     localStorage.removeItem("token");
     setAuth(false);
     toast.success("Logged Out Successfully!")
+    navigate("/");
   }
 
   useEffect(() => {
+    if(isAuthenticated) {
     getName();
+    }
   }, []);
 
   return (
-
+    
     <>
       <Nav />
       <div class="flex-wrapper">

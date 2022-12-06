@@ -1,13 +1,10 @@
 import {
-  createBrowserRouter,
-  RouterProvider,
   Route,
   BrowserRouter as Router,
   Routes,
-  Navigate
 } from "react-router-dom";
 
-import React, { Fragment, useState, useEffect, Dimensions } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 
 import Home from "./components/Home";
 import Login from "./components/Login";
@@ -72,7 +69,9 @@ function App() {
   }
  
   useEffect(() => {
+    if (isAuthenicated){
     fetchWatchlist()
+    }
   }, []);
   
 
@@ -81,7 +80,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home userId={userId}/>} />
-          <Route path="/stats" element={<Stats userId={userId} watchlist={watchlist} fetchWatchlist={fetchWatchlist}/>} />
+          <Route path="/stats" element={<Stats userId={userId} watchlist={watchlist} fetchWatchlist={fetchWatchlist} isAuthenicated={isAuthenicated}/>} />
           <Route path="/graphs" element={<BarChart userId={userId}/>} />
           <Route path="/register" element={<Register setAuth={setAuth} userId={userId}/>} />
           <Route path="/login" element={<Login setAuth={setAuth} userId={userId}/>} />

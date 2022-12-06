@@ -46,7 +46,7 @@ export default function Nav(props) {
           <FontAwesomeIcon className="icon" icon={faBinoculars} />
           <div className="individual-nav-button">Watchlist</div>
         </NavLink>
-
+        {}
         <NavLink to="/register" className="icon-and-button">
           <FontAwesomeIcon className="icon" icon={faUserPlus} />
           <div className="individual-nav-button">Register</div>

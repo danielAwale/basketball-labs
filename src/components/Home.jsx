@@ -9,12 +9,12 @@ import Featured_Players_2 from './Featured_Players_2'
 const Home = () => {
   return (
     <>
-    <Nav />
-    <div class="flex-wrapper">
-      <Featured_Players_2 />
-    <div><News /></div>
-    <div class="footer"><Footer /></div>
-    </div>
+      <Nav />
+      <div class="flex-wrapper">
+        <Featured_Players_2 />
+        <div><News /></div>
+        <div class="footer"><Footer /></div>
+      </div>
     </>
   )
 }

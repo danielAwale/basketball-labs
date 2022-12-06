@@ -47,8 +47,6 @@ const Watchlist = ({ isAuthenticated, setAuth }) => {
     getName();
   }, []);
 
-  console.log(watchlist);
-
   return (
 
     <Fragment>

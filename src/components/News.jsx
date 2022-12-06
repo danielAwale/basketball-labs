@@ -42,12 +42,12 @@ const News = () => {
                             </button>
                         </div>
                     </div>
-              )) : <div class="flex items-end justify-end left-8">
-              <div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
-            </div>} 
-            </div>
+              )) : <>
+                    <div class="spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </>} 
+          </div>
     </>
   )
 }

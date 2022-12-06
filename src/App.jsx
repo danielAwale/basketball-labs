@@ -63,13 +63,12 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Featured_Players_2 />} />
+          <Route path="/" element={<Home />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/graphs" element={<BarChart/>} />
           <Route path="/register" element={<Register setAuth={setAuth}/>} />
           <Route path="/login" element={<Login setAuth={setAuth}/>} />
           <Route path="/watchlist" element={<Watchlist setAuth={setAuth} isAuthenticated={isAuthenicated}/>} />
-
           <Route path="*" element={<Error/>} />
         </Routes>
       </Router>

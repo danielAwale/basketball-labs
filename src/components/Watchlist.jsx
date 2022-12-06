@@ -51,7 +51,6 @@ const Watchlist = ({ isAuthenticated, setAuth }) => {
 
     <Fragment>
       <Nav />
-      <button className="btn" onClick={e => logout(e)}>Logout</button>
       <div className="entire-watchlist">
         <h1 className="title">Watchlist {name}</h1>
           <div className="all-watched-players">

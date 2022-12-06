@@ -39,7 +39,7 @@ const Login = ({ setAuth }) => {
         localStorage.setItem("token", parseRes.token);
         setAuth(true);
         toast.success("Login Successful!")
-        navigate("/watchlist");
+        navigate("/");
       } else {
         setAuth(false)
         toast.error(parseRes);

@@ -75,6 +75,7 @@ const Watchlist = ({ isAuthenticated, setAuth }) => {
 
     <Fragment>
       <Nav />
+      <button className="btn" onClick={e => logout(e)}>Logout</button>
       <div className="entire-watchlist">
         <h1 className="title">{name}'s Watchlist</h1>
         <div className="all-watched-players">
@@ -85,6 +86,7 @@ const Watchlist = ({ isAuthenticated, setAuth }) => {
           {smapleTile}
         </div>
       </div>
+      <button className="btn" onClick={e => logout(e)}>Logout</button>
       <Footer />
     </Fragment>
   ) };

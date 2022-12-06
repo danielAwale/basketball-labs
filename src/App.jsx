@@ -33,6 +33,7 @@ toast.configure();
 
 function App() {
   const [isAuthenicated, setIsAuthenicated] = useState(false);
+  const [watchlist, setWatchlist] = useState([]);
   const [userId, setUserId] = useState(1);
 
   const setAuth = (boolean) => {
@@ -60,16 +61,31 @@ function App() {
     isAuth()
   })
 
+  const fetchWatchlist = () => {
+    fetch("http://localhost:5000/watchlist/1", {
+      method: "POST",
+      headers: { jwt_token: localStorage.token }
+    })
+    .then(response => response.json())
+    .then(data => setWatchlist(data))
+    .catch(error => console.log(error.message))
+  }
+ 
+  useEffect(() => {
+    fetchWatchlist()
+  }, []);
+  
+
   return (
     <>
       <Router>
         <Routes>
           <Route path="/" element={<Home userId={userId}/>} />
-          <Route path="/stats" element={<Stats userId={userId}/>} />
+          <Route path="/stats" element={<Stats userId={userId} watchlist={watchlist} fetchWatchlist={fetchWatchlist}/>} />
           <Route path="/graphs" element={<BarChart userId={userId}/>} />
           <Route path="/register" element={<Register setAuth={setAuth} userId={userId}/>} />
           <Route path="/login" element={<Login setAuth={setAuth} userId={userId}/>} />
-          <Route path="/watchlist" element={<Watchlist setAuth={setAuth} isAuthenticated={isAuthenicated} userId={userId}/>} />
+          <Route path="/watchlist" element={<Watchlist setAuth={setAuth} isAuthenticated={isAuthenicated} userId={userId} watchlist={watchlist} fetchWatchlist={fetchWatchlist}/> } />
           <Route path="*" element={<Error/>} />
         </Routes>
       </Router>

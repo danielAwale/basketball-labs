@@ -3,10 +3,12 @@ import Nav from './Nav';
 import Hero from './Hero';
 import Footer from './Footer';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+import "./styles/home.css"
 
 
-const Stats = ( {userId} ) => {
+const Stats = ( {userId, watchlist, fetchWatchlist} ) => {
   const [statsData, setStatsData] = useState([]);
+  const [disabled, setDisabled] = useState(false);
 
   const addClick = (e, playerId, userId) => {
     e.preventDefault();
@@ -15,7 +17,7 @@ const Stats = ( {userId} ) => {
         // headers: {"Content-Type": "application/json"}, 
         body: JSON.stringify({playerId})
     })
-    .then(response => console.log(response))
+    .then(response => fetchWatchlist())
     .catch(error => console.log(error.message))
   }
 
@@ -24,7 +26,7 @@ const Stats = ( {userId} ) => {
     fetch(`http://localhost:5000/filter/delete/${playerId}/${userId}`, {
         method: "DELETE"
     })
-    //.then(response => console.log(response))
+    .then(response => fetchWatchlist())
     .catch(error => console.log(error.message))
   }
 
@@ -66,6 +68,7 @@ const Stats = ( {userId} ) => {
   return (
     <>
     <Nav />
+    <div class="flex-wrapper">
     <Hero />
     <div class="flex flex-col">
     <div className="px-5 bg-gray-100 overflow-auto">
@@ -161,8 +164,11 @@ const Stats = ( {userId} ) => {
                   {item.three_points_made}
                 </td>
                 <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-lime-500">
-                  <button id="btn" class="btn btn-success" onClick={e => addClick(e, item.id, userId)}>Add Player</button>
-                  <button class="btn btn-danger" onClick={e => deleteClick(e, item.id, userId)}>Remove Player</button>
+                  {
+                    watchlist.find((w) => w.player_id === item.id) 
+                    ? <button class="btn btn-danger" onClick={e => deleteClick(e, item.id, userId)}>Remove Player</button>
+                    : <button id="btn" class="btn btn-success" onClick={e => addClick(e, item.id, userId)}>Add Player</button>
+                  }
                 </td>
               </tr>
                )}) : <div role="status" className='text-center'>
@@ -179,7 +185,10 @@ const Stats = ( {userId} ) => {
       </div>
     </div>
   </div>
+  </div>
+  <div class="footer">
   <Footer />
+  </div>
   </>
   )
 }

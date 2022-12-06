@@ -7,10 +7,9 @@ import Nav from './Nav';
 import Footer from './Footer';
 import FeaturedPlayer from './FeaturedPlayer';
 
-const Watchlist = ({ isAuthenticated, setAuth }) => {
+const Watchlist = ({ isAuthenticated, setAuth, watchlist }) => {
 
   const [name, setName] = useState("");
-  const [watchlist, setWatchlist] = useState([]);
 
   async function getName() {
     try {
@@ -34,23 +33,14 @@ const Watchlist = ({ isAuthenticated, setAuth }) => {
   }
 
   useEffect(() => {
-    fetch("http://localhost:5000/watchlist/1", {
-      method: "POST",
-      headers: { jwt_token: localStorage.token }
-    })
-    .then(response => response.json())
-    .then(data => setWatchlist(data))
-    .catch(error => console.log(error.message))
-  }, []);
-
-  useEffect(() => {
     getName();
   }, []);
 
   return (
 
-    <Fragment>
+    <>
       <Nav />
+      <div class="flex-wrapper">
       <div className="entire-watchlist">
         <h1 className="title">Watchlist {name}</h1>
           <div className="all-watched-players">
@@ -60,16 +50,11 @@ const Watchlist = ({ isAuthenticated, setAuth }) => {
           </div>
       </div>
       <button className="btn" onClick={e => logout(e)}>Logout</button>
+      </div>
+      <div className="footer">
       <Footer />
-    </Fragment>
+      </div>
+    </>
   ) };
-  // return <Navigate to="/login" />
-  // return (
-  //   <Fragment>
-  //     <h1>Watchlist {name}</h1>
-  //     <button className="btn btn-primary" onClick={e => logout(e)}>Logout</button>
-  //   </Fragment>
-  // );
-// };
 
 export default Watchlist;

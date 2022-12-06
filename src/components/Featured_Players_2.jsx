@@ -78,7 +78,6 @@ const Featured_Players_2 = () => {
 
   return (
     <>
-      <Nav />
       <div className='featured-title'>Featured Players of the Week!</div>
       <div className="container mx-auto">
         <div className="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">

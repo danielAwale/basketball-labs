@@ -5,22 +5,20 @@ const News = () => {
 
   const newsImages = ["./news1.png", "./news2.png", "./news3.png", "./news4.png", "./news5.png", "./news6.png", "./news7.png"];
 
-
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': 'c31c0f80f4mshbb6b108a22becd7p1ccc72jsn990e3c358a6d',
-      'X-RapidAPI-Host': 'nba-latest-news.p.rapidapi.com'
-    }
-  };
-  
-  fetch('https://nba-latest-news.p.rapidapi.com/news/source/espn', options)
-    .then(response => response.json())
-    .then(data => setLatestNews(data))
-    .catch(err => console.error(err));
-
     useEffect(() => {
-      fetch()
+
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': 'bf98ee104cmsh227f61cd582d926p1a4698jsn0e13f6783153',
+          'X-RapidAPI-Host': 'nba-latest-news.p.rapidapi.com'
+        }
+      };
+      
+      fetch('https://nba-latest-news.p.rapidapi.com/articles?source=espn', options)
+        .then(response => response.json())
+        .then(response => setLatestNews(response))
+        .catch(err => console.error(err));
     },[])
 
   return (

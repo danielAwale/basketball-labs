@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import registerImg from '../assets/register.jpeg';
 import Nav from './Nav';
@@ -7,6 +7,7 @@ import Footer from './Footer';
 import "./styles/nav.css";
 
 const Register = ({ setAuth }) => {
+  const navigate = useNavigate();
 
   const [inputs, setInputs] = useState({
     email: "",
@@ -39,6 +40,7 @@ const Register = ({ setAuth }) => {
         localStorage.setItem("token", parseRes.token);
         setAuth(true);
         toast.success("Registered Successfully!")
+        navigate("/watchlist");
       } else {
         setAuth(false);
         toast.error(parseRes);

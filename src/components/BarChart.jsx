@@ -58,7 +58,10 @@ const BarChart = () => {
     <>
     <Nav/>
     <Hero />
-    <div className='flex flex-row justify-evenly'>
+    <div className='flex justify-evenly'>
+    <div className="px-5 overflow-auto">
+    <div class="py-1 min-w-full inline-block sm:px-6 lg:px-8">
+    <div class="overflow-hidden">
     <div>
       <h1 class="mb-4 text-m font-bold text-gray-900 dark:text-white md:text-5xl lg:text-l pt-2"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Offense Stats</span></h1>
       <BarChartStats chartData={offensiveData} />
@@ -66,6 +69,9 @@ const BarChart = () => {
     <div>
       <h1 class="mb-4 text-m font-bold text-gray-900 dark:text-white md:text-5xl lg:text-l pt-2"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Defense Stats</span></h1>
       <BarChartStats chartData={defensiveData} />
+    </div>
+    </div>
+    </div>
     </div>
     </div>
     <Footer />

@@ -136,7 +136,7 @@ $light-grey: rgb(157, 157, 157);
   position: relative;
   display: inline-block;
 
-  
+
   margin: auto;
 }
 
@@ -184,6 +184,7 @@ $light-grey: rgb(157, 157, 157);
 
 .dropdown-icon {
   font-size: 120%;
+  transition: 0.3s;
 }
 
 #first-nav-button {
@@ -196,4 +197,8 @@ $light-grey: rgb(157, 157, 157);
 
 .tiny-dropdown {
   margin-left: 20%;
+}
+
+.single-dropdown-section:hover .dropdown-icon {
+  color: rgb(250, 131, 32);
 }

@@ -5,20 +5,28 @@ import Footer from './Footer';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 
-const Stats = () => {
+const Stats = ( {userId} ) => {
   const [statsData, setStatsData] = useState([]);
 
-  const handleClick = (e, playerId) => {
+  const addClick = (e, playerId, userId) => {
     e.preventDefault();
-    console.log(playerId);
-    fetch(`http://localhost:5000/filter/${playerId}`, {
+    fetch(`http://localhost:5000/filter/add/${playerId}/${userId}`, {
         method: "POST",
         // headers: {"Content-Type": "application/json"}, 
         body: JSON.stringify({playerId})
-      })
+    })
     .then(response => console.log(response))
     .catch(error => console.log(error.message))
-    }
+  }
+
+  const deleteClick = (e, playerId, userId) => {
+    console.log(playerId);
+    fetch(`http://localhost:5000/filter/delete/${playerId}/${userId}`, {
+        method: "DELETE"
+    })
+    //.then(response => console.log(response))
+    .catch(error => console.log(error.message))
+  }
 
   useEffect(() => {
     fetch('http://localhost:5000/filter')
@@ -40,7 +48,14 @@ const Stats = () => {
     'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3134881.png'
   ]
 
-  console.log(statsData);
+  // const btn = document.getElementById("btn");
+  // btn.addEventListener("click", function handleClick() {
+  //   if (btn.textContent.includes("Add Player")) {
+  //     btn.textContent = "Remove Player"
+  //   } else {
+  //     btn.textContent = "Add Player"
+  //   }
+  // })
 
   return (
     <>
@@ -139,7 +154,8 @@ const Stats = () => {
                   {item.three_points_made}
                 </td>
                 <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-lime-500">
-                  <button class="btn btn-success" onClick={e => handleClick(e, item.id)}>Add Player</button>
+                  <button id="btn" class="btn btn-success" onClick={e => addClick(e, item.id, userId)}>Add Player</button>
+                  <button class="btn btn-danger" onClick={e => deleteClick(e, item.id, userId)}>Remove Player</button>
                 </td>
               </tr>
             </tbody>

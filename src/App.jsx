@@ -17,7 +17,7 @@ import Watchlist from "./components/Watchlist";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-// import FeaturedPlayers from "./components/FeaturedPlayers";
+// import FeaturedPlayer from "./components/FeaturedPlayer";
 import {PlayerData} from "./Data"
 import BarChartStats from "./components/BarChartStats";
 import News from "./components/News";
@@ -33,6 +33,7 @@ toast.configure();
 
 function App() {
   const [isAuthenicated, setIsAuthenicated] = useState(false);
+  const [userId, setUserId] = useState(1);
 
   const setAuth = (boolean) => {
     setIsAuthenicated(boolean);
@@ -63,12 +64,12 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/stats" element={<Stats />} />
-          <Route path="/graphs" element={<BarChart/>} />
-          <Route path="/register" element={<Register setAuth={setAuth}/>} />
-          <Route path="/login" element={<Login setAuth={setAuth}/>} />
-          <Route path="/watchlist" element={<Watchlist setAuth={setAuth} isAuthenticated={isAuthenicated}/>} />
+          <Route path="/" element={<Home userId={userId}/>} />
+          <Route path="/stats" element={<Stats userId={userId}/>} />
+          <Route path="/graphs" element={<BarChart userId={userId}/>} />
+          <Route path="/register" element={<Register setAuth={setAuth} userId={userId}/>} />
+          <Route path="/login" element={<Login setAuth={setAuth} userId={userId}/>} />
+          <Route path="/watchlist" element={<Watchlist setAuth={setAuth} isAuthenticated={isAuthenicated} userId={userId}/>} />
           <Route path="*" element={<Error/>} />
         </Routes>
       </Router>

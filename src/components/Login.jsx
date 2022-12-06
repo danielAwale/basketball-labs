@@ -55,7 +55,7 @@ const Login = ({ setAuth }) => {
       <Nav />
       <div className='grid grid-cols-1 sm:grid-cols-2 h-screen w-full'>
         <div className='hidden sm:block'>
-          <img className='w-full h-full object-cover' src={loginImg} alt="" />
+          <img className='w-full h-full object-cover pl-5 pb-4' src={loginImg} alt="" />
         </div>
 
         <div className='bg-gray-100 flex flex-col justify-center'>

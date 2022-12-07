@@ -40,7 +40,7 @@ const Register = ({ setAuth }) => {
         localStorage.setItem("token", parseRes.token);
         setAuth(true);
         toast.success("Registered Successfully!")
-        navigate("/watchlist");
+        navigate("/");
       } else {
         setAuth(false);
         toast.error(parseRes);
@@ -74,7 +74,7 @@ const Register = ({ setAuth }) => {
               <label>Password</label>
               <input className='border p-2' name="password" type="password" placeholder="Password" value={password} onChange={e => onChange(e)} />
             </div>
-            <button className='border w-full my-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white'>Sign In</button>
+            <button className='border w-full my-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white'>Sign Up</button>
             <div className='flex justify-between'>
               <p className='flex items-center'><input className='mr-2' type="checkbox" />Remember Me</p>
               <NavLink to="/login" class="text-blue-500 underline">Already signed up?</NavLink>

@@ -31,7 +31,6 @@ toast.configure();
 function App() {
   const [isAuthenicated, setIsAuthenicated] = useState(false);
   const [watchlist, setWatchlist] = useState([]);
-  const [userId, setUserId] = useState(1);
 
   const setAuth = (boolean) => {
     setIsAuthenicated(boolean);
@@ -59,7 +58,7 @@ function App() {
   })
 
   const fetchWatchlist = () => {
-    fetch("http://localhost:5000/watchlist/1", {
+    fetch(`http://localhost:5000/watchlist`, {
       method: "POST",
       headers: { jwt_token: localStorage.token }
     })
@@ -72,19 +71,20 @@ function App() {
     if (isAuthenicated){
     fetchWatchlist()
     }
-  }, []);
+
+  }, [isAuthenicated]);
   
 
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home userId={userId} />} />
-          <Route path="/stats" element={<Stats userId={userId} watchlist={watchlist} fetchWatchlist={fetchWatchlist} isAuthenicated={isAuthenicated}/>} />
-          <Route path="/graphs" element={<BarChart userId={userId}/>} />
-          <Route path="/register" element={<Register setAuth={setAuth} userId={userId}/>} />
-          <Route path="/login" element={<Login setAuth={setAuth} userId={userId}/>} />
-          <Route path="/watchlist" element={<Watchlist setAuth={setAuth} isAuthenticated={isAuthenicated} userId={userId} watchlist={watchlist} fetchWatchlist={fetchWatchlist}/> } />
+          <Route path="/" element={<Home />} />
+          <Route path="/stats" element={<Stats watchlist={watchlist} fetchWatchlist={fetchWatchlist} isAuthenicated={isAuthenicated}/>} />
+          <Route path="/graphs" element={<BarChart/>} />
+          <Route path="/register" element={<Register setAuth={setAuth}/>} />
+          <Route path="/login" element={<Login setAuth={setAuth}/>} />
+          <Route path="/watchlist" element={<Watchlist setAuth={setAuth} isAuthenticated={isAuthenicated} watchlist={watchlist} fetchWatchlist={fetchWatchlist} setWatchlist={setWatchlist}/> } />
           <Route path="*" element={<Error/>} />
         </Routes>
       </Router>

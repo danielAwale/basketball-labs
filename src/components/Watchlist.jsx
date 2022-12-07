@@ -6,15 +6,16 @@ import { toast } from "react-toastify";
 import Nav from './Nav';
 import Footer from './Footer';
 import FeaturedPlayer from './FeaturedPlayer';
+import { NavLink } from "react-router-dom";
 
-const Watchlist = ({ isAuthenticated, setAuth, watchlist }) => {
+const Watchlist = ({ isAuthenticated, setAuth, watchlist, setWatchlist }) => {
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
 
   async function getName() {
     try {
-      const response = await fetch("http://localhost:5000/watchlist/1", {
+      const response = await fetch("http://localhost:5000/watchlist", {
         method: "GET",
         headers: { jwt_token: localStorage.token }
       });
@@ -30,6 +31,7 @@ const Watchlist = ({ isAuthenticated, setAuth, watchlist }) => {
     e.preventDefault();
     localStorage.removeItem("token");
     setAuth(false);
+    setWatchlist([]);
     toast.success("Logged Out Successfully!")
     navigate("/");
   }
@@ -41,7 +43,6 @@ const Watchlist = ({ isAuthenticated, setAuth, watchlist }) => {
   }, []);
 
   return (
-    
     <>
       <Nav />
       <div class="flex-wrapper">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./styles/featured_players_2.css";
 
-const FeaturedPlayer = ({playerStats}) => {
+const FeaturedPlayer = ({playerStats, watchlist}) => {
   return (
     <>
     <div tabindex="0" className="focus:outline-none">

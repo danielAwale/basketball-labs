@@ -4,17 +4,20 @@ import Hero from './Hero';
 import Footer from './Footer';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import "./styles/home.css"
+import Featured_Players_2 from './Featured_Players_2';
 
 
 const Stats = ( {userId, watchlist, fetchWatchlist, isAuthenicated} ) => {
   const [statsData, setStatsData] = useState([]);
 
-  const addClick = (e, playerId, userId) => {
+  const addClick = (e, playerId) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/filter/add/${playerId}/${userId}`, {
+    fetch(`http://localhost:5000/watchlist/add/${playerId}`, {
         method: "POST",
         // headers: {"Content-Type": "application/json"}, 
-        body: JSON.stringify({playerId})
+        body: JSON.stringify({playerId}),
+        headers: { jwt_token: localStorage.token }
+
     })
     .then(response => fetchWatchlist())
     .catch(error => console.log(error.message))
@@ -22,8 +25,9 @@ const Stats = ( {userId, watchlist, fetchWatchlist, isAuthenicated} ) => {
 
   const deleteClick = (e, playerId, userId) => {
     console.log(playerId);
-    fetch(`http://localhost:5000/filter/delete/${playerId}/${userId}`, {
-        method: "DELETE"
+    fetch(`http://localhost:5000/watchlist/delete/${playerId}`, {
+        method: "DELETE",
+        headers: { jwt_token: localStorage.token }
     })
     .then(response => fetchWatchlist())
     .catch(error => console.log(error.message))
@@ -58,7 +62,7 @@ const Stats = ( {userId, watchlist, fetchWatchlist, isAuthenicated} ) => {
     <>
     <Nav />
     <div class="flex-wrapper">
-    <Hero />
+    <Featured_Players_2 />
     <div class="flex flex-col">
     <div className="px-5 bg-gray-100 overflow-auto">
       <div class="py-1 inline-block min-w-full sm:px-6 lg:px-8">

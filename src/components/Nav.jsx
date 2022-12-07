@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartColumn, faCalculator, faBinoculars, faUserPlus, faBars } from "@fortawesome/free-solid-svg-icons";
 
 
-export default function Nav() {
+export default function Nav({isAuthenticated}) {
 
   const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 
@@ -46,11 +46,11 @@ export default function Nav() {
           <FontAwesomeIcon className="icon" icon={faBinoculars} />
           <div className="individual-nav-button">Watchlist</div>
         </NavLink>
-        {}
         <NavLink to="/register" className="icon-and-button">
           <FontAwesomeIcon className="icon" icon={faUserPlus} />
           <div className="individual-nav-button">Register</div>
         </NavLink>
+
       </div>
     </>
   )

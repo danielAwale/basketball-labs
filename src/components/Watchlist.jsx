@@ -27,6 +27,20 @@ const Watchlist = ({ isAuthenticated, setAuth, watchlist, setWatchlist }) => {
     }
   }
 
+  const deleteClick = (playerId, index) => {
+    console.log(playerId, "+++++++++" , index);
+    fetch(`http://localhost:5000/watchlist/delete/${playerId}`, {
+        method: "DELETE",
+        headers: { jwt_token: localStorage.token }
+    })
+    .then(response => { 
+      const newWatchlist = [...watchlist]
+      newWatchlist.splice(index, 1)
+      setWatchlist([...newWatchlist])
+     })
+    .catch(error => console.log(error.message))
+  }
+
   const logout = (e) => {
     e.preventDefault();
     localStorage.removeItem("token");
@@ -49,8 +63,8 @@ const Watchlist = ({ isAuthenticated, setAuth, watchlist, setWatchlist }) => {
       <div className="entire-watchlist">
         <h1 className="title">Watchlist {name}</h1>
           <div className="all-watched-players">
-          {watchlist.length && watchlist.map((item) => { return (
-            <FeaturedPlayer playerStats={item} />
+          {watchlist.length && watchlist.map((item, index) => { return (
+            <FeaturedPlayer playerStats={item} index={index} deleteClick={deleteClick} />
           )})}
           </div>
       </div>

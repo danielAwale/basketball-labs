@@ -22,12 +22,7 @@ const FeaturedPlayer = ({playerStats, fetchWatchlist}) => {
               </div>
               <div className="bg-slate-800 player-description-box">
                 <div className="flex items-center justify-between px-4 pt-4">
-                  <a href="/watchlist">
-                    <svg xmlns="http://www.w3.org/2000/svg" method="POST" action="/watchlist" tabindex="0" className="focus:outline-none" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="white" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M9 4h6a2 2 0 0 1 2 2v14l-5-3l-5 3v-14a2 2 0 0 1 2 -2"></path>
-                    </svg>
-                  </a>
+                  <button class="btn btn-danger" onClick={e => deleteClick(e, playerStats.id)}>Remove Player</button>
                 </div>
                 <div className="p-4">
                   <div className="flex items-center">
@@ -44,7 +39,7 @@ const FeaturedPlayer = ({playerStats, fetchWatchlist}) => {
         </div>
       </div>
 
-      <table class="min-w-full">
+      {/* <table class="min-w-full">
             <thead class="bg-white border-b">
               <tr className='bg-gray-300'>
                 <th scope="col" class="text-xl font-medium text-gray-900 px-6 py-4 text-left hover:bg-gray-300">
@@ -85,7 +80,7 @@ const FeaturedPlayer = ({playerStats, fetchWatchlist}) => {
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody> 
               <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                 <td class="text-xl text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 <img class="w-20 h-16 rounded" src={playerStats.picture} alt="Default avatar" />
@@ -125,7 +120,7 @@ const FeaturedPlayer = ({playerStats, fetchWatchlist}) => {
                 </td>
               </tr>
                </tbody>
-          </table>
+          </table> */}
       </>
   )
 }

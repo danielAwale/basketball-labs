@@ -11,7 +11,9 @@ const Home = () => {
     <>
       <Nav />
       <div class="flex-wrapper">
-        <Featured_Players_2 />
+        <div>
+          <Featured_Players_2 />
+        </div>
         {/* <div><News /></div> */}
         <div class="footer"><Footer /></div>
       </div>

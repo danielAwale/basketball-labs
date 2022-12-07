@@ -3,30 +3,26 @@ import Nav from './Nav';
 import Hero from './Hero';
 import Footer from './Footer';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+import "./styles/home.css"
+import Featured_Players_2 from './Featured_Players_2';
 
 
-const Stats = ( {userId} ) => {
+const Stats = ( {userId, watchlist, fetchWatchlist, isAuthenicated} ) => {
   const [statsData, setStatsData] = useState([]);
 
-  const addClick = (e, playerId, userId) => {
+  const addClick = (e, playerId) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/filter/add/${playerId}/${userId}`, {
+    fetch(`http://localhost:5000/watchlist/add/${playerId}`, {
         method: "POST",
         // headers: {"Content-Type": "application/json"}, 
-        body: JSON.stringify({playerId})
+        body: JSON.stringify({playerId}),
+        headers: { jwt_token: localStorage.token }
+
     })
-    .then(response => console.log(response))
+    .then(response => fetchWatchlist())
     .catch(error => console.log(error.message))
   }
 
-  const deleteClick = (e, playerId, userId) => {
-    console.log(playerId);
-    fetch(`http://localhost:5000/filter/delete/${playerId}/${userId}`, {
-        method: "DELETE"
-    })
-    //.then(response => console.log(response))
-    .catch(error => console.log(error.message))
-  }
 
   useEffect(() => {
     fetch('http://localhost:5000/filter')
@@ -36,7 +32,6 @@ const Stats = ( {userId} ) => {
   },[setStatsData])
 
   const filterStats = (stat) => {
-    console.log("this is the", stat, statsData)
     const new1 = statsData.sort(function(a, b) {
       return b[stat] - a[stat];
     });
@@ -54,19 +49,11 @@ const Stats = ( {userId} ) => {
 
   }
 
-  // const btn = document.getElementById("btn");
-  // btn.addEventListener("click", function handleClick() {
-  //   if (btn.textContent.includes("Add Player")) {
-  //     btn.textContent = "Remove Player"
-  //   } else {
-  //     btn.textContent = "Add Player"
-  //   }
-  // })
-
   return (
     <>
     <Nav />
-    <Hero />
+    <div class="flex-wrapper">
+    <Featured_Players_2 />
     <div class="flex flex-col">
     <div className="px-5 bg-gray-100 overflow-auto">
       <div class="py-1 inline-block min-w-full sm:px-6 lg:px-8">
@@ -119,9 +106,10 @@ const Stats = ( {userId} ) => {
                 <th scope="col" class="text-xl font-medium text-gray-900 px-6 py-4 text-left">
                   3PM%
                 </th>
-                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-center">
+                {isAuthenicated &&
+                <th scope="col" class="text-xl font-medium text-gray-900 px-6 py-4 text-left">
                   Add to Watchlist
-                </th>
+                </th>}
               </tr>
             </thead>
             <tbody>
@@ -160,10 +148,15 @@ const Stats = ( {userId} ) => {
                 <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-lime-500">
                   {item.three_points_made}
                 </td>
+                {isAuthenicated && 
                 <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-lime-500">
-                  <button id="btn" class="btn btn-success" onClick={e => addClick(e, item.id, userId)}>Add Player</button>
-                  <button class="btn btn-danger" onClick={e => deleteClick(e, item.id, userId)}>Remove Player</button>
-                </td>
+                  {
+                    watchlist.find((w) => w.player_id === item.id) 
+                    // ? <button class="btn btn-danger" onClick={e => deleteClick(e, item.id, userId)}>Remove Player</button>
+                    ? <button id="btn" class="btn btn-success" disabled={true} onClick={e => addClick(e, item.id, userId)}>Add Player</button>
+                    : <button id="btn" class="btn btn-success" onClick={e => addClick(e, item.id, userId)}>Add Player</button>
+                  }
+                </td>}
               </tr>
                )}) : <div role="status" className='text-center'>
                <svg aria-hidden="true" className="mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none"      xmlns="http://www.w3.org/2000/svg">
@@ -179,7 +172,10 @@ const Stats = ( {userId} ) => {
       </div>
     </div>
   </div>
+  </div>
+  <div class="footer">
   <Footer />
+  </div>
   </>
   )
 }

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route, Redirect, Link, NavLink } from "react-router-dom";
 import "./styles/nav.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartColumn, faCalculator, faBinoculars, faUserPlus, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faChartColumn, faCalculator, faBinoculars, faUserPlus, faBars, faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 
-export default function Nav({isAuthenticated}) {
+export default function Nav({ isAuthenticated }) {
 
   const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 
@@ -127,7 +127,7 @@ export default function Nav({isAuthenticated}) {
     } else if (windowSize.width < 870 && windowSize.width > 460) {
       const navBar = smallNavBar;
       return navBar;
-    } else if (windowSize.width <= 460 ) {
+    } else if (windowSize.width <= 460) {
       const navBar = tinyNavBar;
       return navBar;
     }

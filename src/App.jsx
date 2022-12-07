@@ -79,11 +79,11 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/stats" element={<Stats watchlist={watchlist} fetchWatchlist={fetchWatchlist} isAuthenicated={isAuthenicated}/>} />
-          <Route path="/graphs" element={<BarChart/>} />
-          <Route path="/register" element={<Register setAuth={setAuth}/>} />
-          <Route path="/login" element={<Login setAuth={setAuth}/>} />
+          <Route path="/" element={<Home setAuth={setAuth} isAuthenticated={isAuthenicated}/>} />
+          <Route path="/stats" element={<Stats watchlist={watchlist} fetchWatchlist={fetchWatchlist} setAuth={setAuth} isAuthenicated={isAuthenicated}/>} />
+          <Route path="/graphs" element={<BarChart setAuth={setAuth} isAuthenticated={isAuthenicated}/>} />
+          <Route path="/register" element={<Register setAuth={setAuth} isAuthenticated={isAuthenicated}/>} />
+          <Route path="/login" element={<Login setAuth={setAuth}/>} isAuthenticated={isAuthenicated}/>
           <Route path="/watchlist" element={<Watchlist setAuth={setAuth} isAuthenticated={isAuthenicated} watchlist={watchlist} fetchWatchlist={fetchWatchlist} setWatchlist={setWatchlist}/> } />
           <Route path="*" element={<Error/>} />
         </Routes>

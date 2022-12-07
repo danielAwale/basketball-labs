@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import "./styles/featured_players_2.css";
 
-const FeaturedPlayer = ({playerStats, watchlist}) => {
+const FeaturedPlayer = ({playerStats, fetchWatchlist}) => {
+  const deleteClick = (e, playerId, userId) => {
+    console.log(playerId);
+    fetch(`http://localhost:5000/watchlist/delete/${playerId}`, {
+        method: "DELETE",
+        headers: { jwt_token: localStorage.token }
+    })
+    .then(response => fetchWatchlist())
+    .catch(error => console.log(error.message))
+  }
   return (
     <>
     <div tabindex="0" className="focus:outline-none">
@@ -71,6 +80,9 @@ const FeaturedPlayer = ({playerStats, watchlist}) => {
                 <th scope="col" class="text-xl font-medium text-gray-900 px-6 py-4 text-left">
                   3PM%
                 </th>
+                <th scope="col" class="text-xl font-medium text-gray-900 px-6 py-4 text-left">
+                  Remove from Watchlist
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -107,6 +119,9 @@ const FeaturedPlayer = ({playerStats, watchlist}) => {
                 </td>
                 <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-lime-500">
                   {playerStats.three_points_made}
+                </td>
+                <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-lime-500"> 
+                  <button class="btn btn-danger" onClick={e => deleteClick(e, playerStats.id)}>Remove Player</button>
                 </td>
               </tr>
                </tbody>

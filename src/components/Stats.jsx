@@ -23,15 +23,6 @@ const Stats = ( {userId, watchlist, fetchWatchlist, isAuthenicated} ) => {
     .catch(error => console.log(error.message))
   }
 
-  const deleteClick = (e, playerId, userId) => {
-    console.log(playerId);
-    fetch(`http://localhost:5000/watchlist/delete/${playerId}`, {
-        method: "DELETE",
-        headers: { jwt_token: localStorage.token }
-    })
-    .then(response => fetchWatchlist())
-    .catch(error => console.log(error.message))
-  }
 
   useEffect(() => {
     fetch('http://localhost:5000/filter')
@@ -161,7 +152,8 @@ const Stats = ( {userId, watchlist, fetchWatchlist, isAuthenicated} ) => {
                 <td class="text-xl text-gray-900 font-bold px-6 py-4 whitespace-nowrap bg-lime-500">
                   {
                     watchlist.find((w) => w.player_id === item.id) 
-                    ? <button class="btn btn-danger" onClick={e => deleteClick(e, item.id, userId)}>Remove Player</button>
+                    // ? <button class="btn btn-danger" onClick={e => deleteClick(e, item.id, userId)}>Remove Player</button>
+                    ? <button id="btn" class="btn btn-success" disabled={true} onClick={e => addClick(e, item.id, userId)}>Add Player</button>
                     : <button id="btn" class="btn btn-success" onClick={e => addClick(e, item.id, userId)}>Add Player</button>
                   }
                 </td>}

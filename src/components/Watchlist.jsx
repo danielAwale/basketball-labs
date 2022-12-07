@@ -8,7 +8,7 @@ import Footer from './Footer';
 import FeaturedPlayer from './FeaturedPlayer';
 import { NavLink } from "react-router-dom";
 
-const Watchlist = ({ isAuthenticated, setAuth, watchlist, setWatchlist }) => {
+const Watchlist = ({ isAuthenticated, setAuth, watchlist, setWatchlist, playerStats }) => {
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -28,7 +28,7 @@ const Watchlist = ({ isAuthenticated, setAuth, watchlist, setWatchlist }) => {
   }
 
   const deleteClick = (playerId, index) => {
-    console.log(playerId, "+++++++++" , index);
+    // console.log(playerId, "+++++++++" , index);
     fetch(`http://localhost:5000/watchlist/delete/${playerId}`, {
         method: "DELETE",
         headers: { jwt_token: localStorage.token }

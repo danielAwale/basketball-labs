@@ -79,7 +79,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home userId={userId}/>} />
+          <Route path="/" element={<Home userId={userId} />} />
           <Route path="/stats" element={<Stats userId={userId} watchlist={watchlist} fetchWatchlist={fetchWatchlist} isAuthenicated={isAuthenicated}/>} />
           <Route path="/graphs" element={<BarChart userId={userId}/>} />
           <Route path="/register" element={<Register setAuth={setAuth} userId={userId}/>} />

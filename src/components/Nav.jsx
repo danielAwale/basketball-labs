@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartColumn, faCalculator, faBinoculars, faUserPlus, faBars } from "@fortawesome/free-solid-svg-icons";
 
 
-export default function Nav(props) {
+export default function Nav() {
 
   const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 

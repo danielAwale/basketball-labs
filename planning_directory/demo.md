@@ -22,4 +22,7 @@
 
 ## Presentation Script
 ### Intro
-"We're from the Basketball Labs development team and we're here to present you our fabulous product. Basketball Labs aims to be your go-to resource for all your NBA statistical needs. We provide in-depth season stats and visualize them for a more immersive experience. Filter, sort and marvel at all the different ways to take in numbers. We hope you enjoy this journey as we demo our full stack, multi-page app."
+"Hi all, welcome to our demo. We're from the Basketball Labs development team and we're here to present you our fabulous product. Basketball Labs aims to be your go-to resource for all your NBA statistical needs. We provide in-depth season stats and visualize them for a more immersive experience. Filter, sort and marvel at all the different ways to take in numbers. We've utiilized the PERN stack while also using a bunch of libraries such as Chart.js, React Router, and Tailwind CSS just to name a few. We hope you enjoy this journey as we demo our full stack, multi-page application."
+
+## Outro
+"Thank you for taking the time to listen and view our demo. We hope our product has intrigued you and you'll use it to dominate yout fantasy league or just for your basic stats needs! We can't wait to see the rest of the demos!"

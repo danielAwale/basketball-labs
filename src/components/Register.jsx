@@ -7,7 +7,7 @@ import Footer from './Footer';
 import "./styles/nav.css";
 import "./styles/register-login.css";
 
-const Register = ({ setAuth }) => {
+const Register = ({ setAuth, isAuthenticated }) => {
   const navigate = useNavigate();
 
   const [inputs, setInputs] = useState({
@@ -53,7 +53,7 @@ const Register = ({ setAuth }) => {
   }
   return (
     <Fragment>
-      <Nav />
+      <Nav setAuth={setAuth} isAuthenticated={isAuthenticated} />
       <div className='grid grid-cols-1 sm:grid-cols-2 h-screen w-full body-background'>
         <div className='hidden sm:block'>
           <img className='w-full h-full object-cover pl-5 pb-4 large-image' src={registerImg} alt="" />

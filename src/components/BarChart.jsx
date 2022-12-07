@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import BarChartStats from './BarChartStats'
 import { PlayerData } from '../Data'
 import Nav from './Nav'
@@ -6,7 +6,7 @@ import Hero from './Hero'
 import Footer from './Footer'
 import Featured_Players_2 from './Featured_Players_2'
 
-const BarChart = () => {
+const BarChart = (setAuth, isAuthenticated) => {
   const [offensiveData, setOffensiveData] = useState({
     labels: PlayerData.map(item => item.first_name),
     datasets: [
@@ -57,25 +57,25 @@ const BarChart = () => {
 
   return (
     <>
-    <Nav/>
-    <Featured_Players_2 />
-    <div className='flex justify-evenly'>
-    <div className="px-5 overflow-auto">
-    <div class="py-1 min-w-full inline-block sm:px-6 lg:px-8">
-    <div class="overflow-hidden">
-    <div>
-      <h1 class="mb-4 text-m font-bold text-gray-900 dark:text-white md:text-5xl lg:text-l pt-2"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Offense Stats</span></h1>
-      <BarChartStats chartData={offensiveData} />
-    </div>
-    <div>
-      <h1 class="mb-4 text-m font-bold text-gray-900 dark:text-white md:text-5xl lg:text-l pt-2"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Defense Stats</span></h1>
-      <BarChartStats chartData={defensiveData} />
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <Footer />
+      <Nav setAuth={setAuth} isAuthenticated={isAuthenticated} />
+      <Featured_Players_2 />
+      <div className='flex justify-evenly'>
+        <div className="px-5 overflow-auto">
+          <div class="py-1 min-w-full inline-block sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+              <div>
+                <h1 class="mb-4 text-m font-bold text-gray-900 dark:text-white md:text-5xl lg:text-l pt-2"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Offense Stats</span></h1>
+                <BarChartStats chartData={offensiveData} />
+              </div>
+              <div>
+                <h1 class="mb-4 text-m font-bold text-gray-900 dark:text-white md:text-5xl lg:text-l pt-2"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Defense Stats</span></h1>
+                <BarChartStats chartData={defensiveData} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer />
     </>
   )
 }

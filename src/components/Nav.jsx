@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect, Link, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect, Link, NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "./styles/nav.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartColumn, faCalculator, faBinoculars, faUserPlus, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faChartColumn, faCalculator, faBinoculars, faUserPlus, faBars, faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 
-export default function Nav({isAuthenticated}) {
+export default function Nav({ isAuthenticated, setAuth }) {
 
   const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 
@@ -25,6 +26,16 @@ export default function Nav({isAuthenticated}) {
       window.removeEventListener('resize', handleWindowResize);
     };
   }, []);
+
+  const navigate = useNavigate();
+
+  const logout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    setAuth(false);
+    toast.success("Logged Out Successfully!")
+    navigate("/");
+  }
 
   const largeNavBar = (
     <>
@@ -46,11 +57,18 @@ export default function Nav({isAuthenticated}) {
           <FontAwesomeIcon className="icon" icon={faBinoculars} />
           <div className="individual-nav-button">Watchlist</div>
         </NavLink>
-        <NavLink to="/register" className="icon-and-button">
-          <FontAwesomeIcon className="icon" icon={faUserPlus} />
-          <div className="individual-nav-button">Register</div>
-        </NavLink>
 
+        {isAuthenticated ? (
+          < NavLink to="/" className="icon-and-button" onClick={e => logout(e)}>
+            <FontAwesomeIcon className="icon" icon={faArrowRightFromBracket} />
+            <div className="individual-nav-button">Logout</div>
+          </NavLink>
+        ) : (
+          <NavLink to="/register" className="icon-and-button">
+            <FontAwesomeIcon className="icon" icon={faUserPlus} />
+            <div className="individual-nav-button">Register</div>
+          </NavLink>
+        )}
       </div>
     </>
   )
@@ -79,10 +97,17 @@ export default function Nav({isAuthenticated}) {
             <div className="">Watchlist</div>
           </NavLink>
 
-          <NavLink to="/register" className="single-dropdown-section">
-            <FontAwesomeIcon className="dropdown-icon" icon={faUserPlus} />
-            <div className="">Register</div>
-          </NavLink>
+          {isAuthenticated ? (
+            < NavLink to="/" className="icon-and-button">
+              <FontAwesomeIcon className="icon" icon={faArrowRightFromBracket} />
+              <div className="individual-nav-button" onClick={e => logout(e)}>Logout</div>
+            </NavLink>
+          ) : (
+            <NavLink to="/register" className="icon-and-button">
+              <FontAwesomeIcon className="icon" icon={faUserPlus} />
+              <div className="individual-nav-button">Register</div>
+            </NavLink>
+          )}
         </div>
       </div>
     </>
@@ -111,10 +136,17 @@ export default function Nav({isAuthenticated}) {
             <div className="">Watchlist</div>
           </NavLink>
 
-          <NavLink to="/register" className="single-dropdown-section">
-            <FontAwesomeIcon className="dropdown-icon" icon={faUserPlus} />
-            <div className="">Register</div>
-          </NavLink>
+          {isAuthenticated ? (
+            < NavLink to="/" className="icon-and-button">
+              <FontAwesomeIcon className="icon" icon={faArrowRightFromBracket} />
+              <div className="individual-nav-button" onClick={e => logout(e)}>Logout</div>
+            </NavLink>
+          ) : (
+            <NavLink to="/register" className="icon-and-button">
+              <FontAwesomeIcon className="icon" icon={faUserPlus} />
+              <div className="individual-nav-button">Register</div>
+            </NavLink>
+          )}
         </div>
       </div>
     </>
@@ -127,7 +159,7 @@ export default function Nav({isAuthenticated}) {
     } else if (windowSize.width < 870 && windowSize.width > 460) {
       const navBar = smallNavBar;
       return navBar;
-    } else if (windowSize.width <= 460 ) {
+    } else if (windowSize.width <= 460) {
       const navBar = tinyNavBar;
       return navBar;
     }

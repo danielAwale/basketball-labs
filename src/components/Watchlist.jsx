@@ -2,14 +2,11 @@ import React, { Fragment, useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./styles/watchlist.css";
 import "./styles/featured_players_2.css";
-import { toast } from "react-toastify";
 import Nav from './Nav';
 import Footer from './Footer';
 import FeaturedPlayer from './FeaturedPlayer';
-import { NavLink } from "react-router-dom";
 
 const Watchlist = ({ isAuthenticated, setAuth, watchlist, setWatchlist, playerStats }) => {
-  const navigate = useNavigate();
 
   const [name, setName] = useState("");
 
@@ -30,50 +27,43 @@ const Watchlist = ({ isAuthenticated, setAuth, watchlist, setWatchlist, playerSt
   const deleteClick = (playerId, index) => {
     // console.log(playerId, "+++++++++" , index);
     fetch(`http://localhost:5000/watchlist/delete/${playerId}`, {
-        method: "DELETE",
-        headers: { jwt_token: localStorage.token }
+      method: "DELETE",
+      headers: { jwt_token: localStorage.token }
     })
-    .then(response => { 
-      const newWatchlist = [...watchlist]
-      newWatchlist.splice(index, 1)
-      setWatchlist([...newWatchlist])
-     })
-    .catch(error => console.log(error.message))
-  }
-
-  const logout = (e) => {
-    e.preventDefault();
-    localStorage.removeItem("token");
-    setAuth(false);
-    setWatchlist([]);
-    toast.success("Logged Out Successfully!")
-    navigate("/");
+      .then(response => {
+        const newWatchlist = [...watchlist]
+        newWatchlist.splice(index, 1)
+        setWatchlist([...newWatchlist])
+      })
+      .catch(error => console.log(error.message))
   }
 
   useEffect(() => {
-    if(isAuthenticated) {
-    getName();
+    if (isAuthenticated) {
+      getName();
     }
   }, []);
 
   return (
     <>
-      <Nav />
+      <Nav setAuth={setAuth} isAuthenticated={isAuthenticated} />
       <div class="flex-wrapper">
-      <div className="entire-watchlist">
-        <h1 className="title">Watchlist {name}</h1>
+        <div className="entire-watchlist">
+          <h1 className="title">Watchlist: {name}</h1>
           <div className="all-watched-players">
-          {watchlist.length && watchlist.map((item, index) => { return (
-            <FeaturedPlayer playerStats={item} index={index} deleteClick={deleteClick} />
-          )})}
+            {watchlist.length && watchlist.map((item, index) => {
+              return (
+                <FeaturedPlayer playerStats={item} index={index} deleteClick={deleteClick} />
+              )
+            })}
           </div>
-      </div>
-      <button className="btn" onClick={e => logout(e)}>Logout</button>
+        </div>
       </div>
       <div className="footer">
-      <Footer />
+        <Footer />
       </div>
     </>
-  ) };
+  )
+};
 
 export default Watchlist;

@@ -29,11 +29,11 @@ import './App.css';
 toast.configure();
 
 function App() {
-  const [isAuthenicated, setIsAuthenicated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [watchlist, setWatchlist] = useState([]);
 
   const setAuth = (boolean) => {
-    setIsAuthenicated(boolean);
+    setIsAuthenticated(boolean);
   };
   
   async function isAuth() {
@@ -46,7 +46,7 @@ function App() {
 
       const parseRes = await response.json();
 
-      parseRes === true ? setIsAuthenicated(true) : setIsAuthenicated(false);
+      parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
 
     } catch (error) {
       console.error(error.message);
@@ -68,23 +68,23 @@ function App() {
   }
  
   useEffect(() => {
-    if (isAuthenicated){
+    if (isAuthenticated){
     fetchWatchlist()
     }
 
-  }, [isAuthenicated]);
+  }, [isAuthenticated]);
   
 
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/stats" element={<Stats watchlist={watchlist} fetchWatchlist={fetchWatchlist} isAuthenicated={isAuthenicated}/>} />
-          <Route path="/graphs" element={<BarChart/>} />
-          <Route path="/register" element={<Register setAuth={setAuth}/>} />
-          <Route path="/login" element={<Login setAuth={setAuth}/>} />
-          <Route path="/watchlist" element={<Watchlist setAuth={setAuth} isAuthenticated={isAuthenicated} watchlist={watchlist} fetchWatchlist={fetchWatchlist} setWatchlist={setWatchlist}/> } />
+          <Route path="/" element={<Home setAuth={setAuth} isAuthenticated={isAuthenticated}/>} />
+          <Route path="/stats" element={<Stats watchlist={watchlist} fetchWatchlist={fetchWatchlist} setAuth={setAuth} isAuthenticated={isAuthenticated}/>} />
+          <Route path="/graphs" element={<BarChart setAuth={setAuth} isAuthenticated={isAuthenticated}/>} />
+          <Route path="/register" element={<Register setAuth={setAuth} isAuthenticated={isAuthenticated}/>} />
+          <Route path="/login" element={<Login setAuth={setAuth}/>} isAuthenticated={isAuthenticated}/>
+          <Route path="/watchlist" element={<Watchlist setAuth={setAuth} isAuthenticated={isAuthenticated} watchlist={watchlist} fetchWatchlist={fetchWatchlist} setWatchlist={setWatchlist}/> } />
           <Route path="*" element={<Error/>} />
         </Routes>
       </Router>

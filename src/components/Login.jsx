@@ -8,7 +8,7 @@ import "./styles/nav.css";
 import "./styles/nav.css";
 import "./styles/register-login.css";
 
-const Login = ({ setAuth }) => {
+const Login = ({ setAuth, isAuthenticated }) => {
   const navigate = useNavigate();
 
   const [inputs, setInputs] = useState({
@@ -54,7 +54,7 @@ const Login = ({ setAuth }) => {
 
   return (
     <Fragment>
-      <Nav />
+      <Nav setAuth={setAuth} isAuthenticated={isAuthenticated} />
       <div className='grid grid-cols-1 sm:grid-cols-2 h-screen w-full body-background'>
         <div className='hidden sm:block'>
           <img className='w-full h-full object-cover pl-5 pb-4 large-image' src={loginImg} alt="" />
@@ -85,15 +85,3 @@ const Login = ({ setAuth }) => {
 };
 
 export default Login;
-
-// return (
-//   <Fragment>
-//     <h1 className="" text-center my-5>Login</h1>
-//     <form onSubmit={onSubmitForm}>
-//       <input type="email" name="email" placeholder="email" className="form-control my-3" value={email} onChange={e => onChange(e)} />
-//       <input type="password" name="password" placeholder="password" className="form-control my-3" value={password} onChange={e => onChange(e)} />
-//       <button className btn btn-success btn-block>Submit</button>
-//     </form>
-//     <Link to="/register">Register</Link>
-//   </Fragment>
-// );

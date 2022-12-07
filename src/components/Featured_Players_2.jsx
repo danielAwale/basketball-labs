@@ -78,8 +78,8 @@ const Featured_Players_2 = () => {
 
   return (
     <>
-      <div className='featured-title'>Featured Players of the Week!</div>
       <div className="container mx-auto">
+      <div className='featured-title'>Featured Players of the Week</div>
         <div className="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
           {/* Carousel for desktop and large size devices */}
           <CarouselProvider className="lg:block hidden" naturalSlideWidth={405} currentSlide={0} isIntrinsicHeight={true} totalSlides={9.55} visibleSlides={windowSize.width / 450} step={1} infinite={true}>

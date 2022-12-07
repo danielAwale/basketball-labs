@@ -5,6 +5,7 @@ import registerImg from '../assets/register.jpeg';
 import Nav from './Nav';
 import Footer from './Footer';
 import "./styles/nav.css";
+import "./styles/register-login.css";
 
 const Register = ({ setAuth }) => {
   const navigate = useNavigate();
@@ -50,13 +51,12 @@ const Register = ({ setAuth }) => {
       console.error(error.message);
     }
   }
-
   return (
     <Fragment>
       <Nav />
-      <div className='grid grid-cols-1 sm:grid-cols-2 h-screen w-full'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 h-screen w-full body-background'>
         <div className='hidden sm:block'>
-          <img className='w-full h-full object-cover pl-5 pb-4' src={registerImg} alt="" />
+          <img className='w-full h-full object-cover pl-5 pb-4 large-image' src={registerImg} alt="" />
         </div>
 
         <div className='bg-gray-100 flex flex-col justify-center'>

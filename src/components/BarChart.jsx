@@ -4,6 +4,7 @@ import { PlayerData } from '../Data'
 import Nav from './Nav'
 import Hero from './Hero'
 import Footer from './Footer'
+import Featured_Players_2 from './Featured_Players_2'
 
 const BarChart = () => {
   const [offensiveData, setOffensiveData] = useState({
@@ -57,7 +58,7 @@ const BarChart = () => {
   return (
     <>
     <Nav/>
-    <Hero />
+    <Featured_Players_2 />
     <div className='flex justify-evenly'>
     <div className="px-5 overflow-auto">
     <div class="py-1 min-w-full inline-block sm:px-6 lg:px-8">

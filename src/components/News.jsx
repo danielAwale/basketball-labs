@@ -10,7 +10,7 @@ const News = () => {
       const options = {
         method: 'GET',
         headers: {
-          'X-RapidAPI-Key': 'bf98ee104cmsh227f61cd582d926p1a4698jsn0e13f6783153',
+          'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
           'X-RapidAPI-Host': 'nba-latest-news.p.rapidapi.com'
         }
       };

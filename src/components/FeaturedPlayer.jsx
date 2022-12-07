@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import "./styles/featured_players_2.css";
 
-const FeaturedPlayer = ({playerStats}) => {
+const FeaturedPlayer = ({playerStats, fetchWatchlist, index, deleteClick }) => {
+
+  // const deleteClick = (e, playerId, userId) => {
+  //   console.log(playerId);
+  //   fetch(`http://localhost:5000/watchlist/delete/${playerId}`, {
+  //       method: "DELETE",
+  //       headers: { jwt_token: localStorage.token }
+  //   })
+  //   .then(response => fetchWatchlist())
+  //   .catch(error => console.log(error.message))
+  // }
   return (
+    <>
     <div tabindex="0" className="focus:outline-none">
         <div className="mx-auto container py-8">
           <div className="flex flex-wrap items-center lg:justify-between justify-center">
@@ -10,21 +21,16 @@ const FeaturedPlayer = ({playerStats}) => {
               <div>
                 <img src={playerStats.picture} tabindex="0" className="focus:outline-none w-full h-44 player-photo" />
               </div>
-              <div className="bg-white player-description-box">
+              <div className="bg-slate-800 player-description-box">
                 <div className="flex items-center justify-between px-4 pt-4">
-                  <a href="/watchlist">
-                    <svg xmlns="http://www.w3.org/2000/svg" method="POST" action="/watchlist" tabindex="0" className="focus:outline-none" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <path d="M9 4h6a2 2 0 0 1 2 2v14l-5-3l-5 3v-14a2 2 0 0 1 2 -2"></path>
-                    </svg>
-                  </a>
+                  <button class="btn btn-danger" onClick={e => deleteClick(playerStats.id, index)}>Remove Player</button>
                 </div>
                 <div className="p-4">
                   <div className="flex items-center">
-                    <h2 tabindex="0" className="focus:outline-none text-lg font-semibold">{playerStats.first_name} {playerStats.last_name}</h2>
-                    <p tabindex="0" className="focus:outline-none text-xs text-gray-600 pl-5">LA Lakers</p>
+                    <h2 tabindex="0" className="focus:outline-none text-lg font-semibold text-white">{playerStats.first_name} {playerStats.last_name}</h2>
+                    <p tabindex="0" className="focus:outline-none text-xs text-slate-400 pl-5">{playerStats.team_name}</p>
                   </div>
-                  <p tabindex="0" className="focus:outline-none text-xs text-gray-600 mt-2 featured-stat-info"><br/>Points: {playerStats.points}<br/><br/>Assists: {playerStats.assists}<br/><br/>Rebounds: {playerStats.rebounds}</p>
+                  <p tabindex="0" className="focus:outline-none text-xs text-slate-400 mt-2 featured-stat-info"><br/>Points: {playerStats.points}<br/><br/>Assists: {playerStats.assists}<br/><br/>Rebounds: {playerStats.rebounds}<br/><br/>Steals: {playerStats.steals}<br/><br/>Blocks: {playerStats.blocks}<br/><br/>T/O: {playerStats.turnovers}<br/><br/>FGP: {playerStats.field_goal_percentage}<br/><br/> FTP: {playerStats.free_throw_percentage}<br/><br/>3PM: {playerStats.three_points_made}</p>
                   <div className="flex mt-4">
                   </div>
                 </div>
@@ -33,6 +39,7 @@ const FeaturedPlayer = ({playerStats}) => {
           </div>
         </div>
       </div>
+      </>
   )
 }
 

@@ -1,0 +1,14 @@
+.entire-footer {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.footer-icons {
+  margin-top: 0px !important
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  height: 4em;
+}

@@ -5,8 +5,10 @@ import "./styles/featured_players_2.css";
 import Nav from './Nav';
 import Footer from './Footer';
 import FeaturedPlayer from './FeaturedPlayer';
+import { toast } from "react-toastify";
 
-const Watchlist = ({ isAuthenticated, setAuth, watchlist, setWatchlist, playerStats }) => {
+const Watchlist = ({ isAuthenticated, setAuth, watchlist, setWatchlist, playerStats}) => {
+  const navigate = useNavigate();
 
   const [name, setName] = useState("");
 
@@ -46,7 +48,7 @@ const Watchlist = ({ isAuthenticated, setAuth, watchlist, setWatchlist, playerSt
 
   return (
     <>
-      <Nav setAuth={setAuth} isAuthenticated={isAuthenticated} />
+      <Nav setAuth={setAuth} isAuthenticated={isAuthenticated} setWatchlist={setWatchlist} />
       <div class="flex-wrapper">
         <div className="entire-watchlist">
           <h1 className="title">Watchlist: {name}</h1>

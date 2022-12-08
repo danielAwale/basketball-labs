@@ -1,13 +1,11 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/watchlist.css";
 import "./styles/featured_players_2.css";
 import Nav from './Nav';
 import Footer from './Footer';
 import FeaturedPlayer from './FeaturedPlayer';
-import { toast } from "react-toastify";
 
 const Watchlist = ({ isAuthenticated, setAuth, watchlist, setWatchlist, playerStats}) => {
-  const navigate = useNavigate();
 
   const [name, setName] = useState("");
 

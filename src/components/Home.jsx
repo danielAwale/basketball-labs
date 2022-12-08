@@ -6,10 +6,10 @@ import News from './News'
 import "./styles/home.css"
 import Featured_Players_2 from './Featured_Players_2'
 
-const Home = ({ setAuth, isAuthenticated }) => {
+const Home = ({ setAuth, isAuthenticated, setWatchlist }) => {
   return (
     <>
-      <Nav setAuth={setAuth} isAuthenticated={isAuthenticated} />
+      <Nav setAuth={setAuth} isAuthenticated={isAuthenticated} setWatchlist={setWatchlist}/>
       <div class="flex-wrapper">
         <div>
           <Featured_Players_2 />

@@ -6,7 +6,7 @@ import Hero from './Hero'
 import Footer from './Footer'
 import Featured_Players_2 from './Featured_Players_2'
 
-const BarChart = ({setAuth, isAuthenticated}) => {
+const BarChart = ({setAuth, isAuthenticated, setWatchlist}) => {
   const [offensiveData, setOffensiveData] = useState({
     labels: PlayerData.map(item => item.first_name),
     datasets: [
@@ -57,7 +57,7 @@ const BarChart = ({setAuth, isAuthenticated}) => {
 
   return (
     <>
-      <Nav setAuth={setAuth} isAuthenticated={isAuthenticated} />
+      <Nav setAuth={setAuth} isAuthenticated={isAuthenticated} setWatchlist={setWatchlist} />
       <Featured_Players_2 />
       <div className='flex justify-evenly'>
         <div className="px-5 overflow-auto">

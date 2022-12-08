@@ -104,24 +104,24 @@ export default function Nav({ isAuthenticated, setAuth, setWatchlist, watchlist,
           </NavLink>
 
           {isAuthenticated ? (
-            <NavLink to="/watchlist" className="icon-and-button">
-              <FontAwesomeIcon className="icon" icon={faBinoculars} />
+            <NavLink to="/watchlist" className="single-dropdown-section">
+              <FontAwesomeIcon className="dropdown-icon" icon={faBinoculars} />
               <div className="individual-nav-button">Watchlist</div>
             </NavLink>
           ) : (
-            <NavLink to="/register" className="icon-and-button" onClick={noAccessWatchlist}>
-              <FontAwesomeIcon className="icon" icon={faBinoculars} />
+            <NavLink to="/register" className="single-dropdown-section" onClick={noAccessWatchlist}>
+              <FontAwesomeIcon className="dropdown-icon" icon={faBinoculars} />
               <div className="individual-nav-button">Watchlist</div>
             </NavLink>)}
 
           {isAuthenticated ? (
-            < NavLink to="/" className="icon-and-button" onClick={e => logout(e)}>
-              <FontAwesomeIcon className="icon" icon={faArrowRightFromBracket} />
+            < NavLink to="/" className="single-dropdown-section" onClick={e => logout(e)}>
+              <FontAwesomeIcon className="dropdown-icon" icon={faArrowRightFromBracket} />
               <div className="individual-nav-button">Logout</div>
             </NavLink>
           ) : (
-            <NavLink to="/register" className="icon-and-button">
-              <FontAwesomeIcon className="icon" icon={faUserPlus} />
+            <NavLink to="/register" className="single-dropdown-section">
+              <FontAwesomeIcon className="dropdown-icon" icon={faUserPlus} />
               <div className="individual-nav-button">Register</div>
             </NavLink>
           )}
@@ -149,25 +149,25 @@ export default function Nav({ isAuthenticated, setAuth, setWatchlist, watchlist,
           </NavLink>
 
           {isAuthenticated ? (
-            <NavLink to="/watchlist" className="icon-and-button">
-              <FontAwesomeIcon className="icon" icon={faBinoculars} />
-              <div className="individual-nav-button">Watchlist</div>
+            <NavLink to="/watchlist" className="single-dropdown-section">
+              <FontAwesomeIcon className="dropdown-icon" icon={faBinoculars} />
+              <div className="">Watchlist</div>
             </NavLink>
           ) : (
-            <NavLink to="/register" className="icon-and-button" onClick={noAccessWatchlist}>
-              <FontAwesomeIcon className="icon" icon={faBinoculars} />
-              <div className="individual-nav-button">Watchlist</div>
+            <NavLink to="/register" className="single-dropdown-section" onClick={noAccessWatchlist}>
+              <FontAwesomeIcon className="dropdown-icon" icon={faBinoculars} />
+              <div className="">Watchlist</div>
             </NavLink>)}
 
           {isAuthenticated ? (
-            < NavLink to="/" className="icon-and-button" onClick={e => logout(e)}>
-              <FontAwesomeIcon className="icon" icon={faArrowRightFromBracket} />
-              <div className="individual-nav-button">Logout</div>
+            < NavLink to="/" className="single-dropdown-section" onClick={e => logout(e)}>
+              <FontAwesomeIcon className="dropdown-icon" icon={faArrowRightFromBracket} />
+              <div className="">Logout</div>
             </NavLink>
           ) : (
-            <NavLink to="/register" className="icon-and-button">
-              <FontAwesomeIcon className="icon" icon={faUserPlus} />
-              <div className="individual-nav-button">Register</div>
+            <NavLink to="/register" className="single-dropdown-section">
+              <FontAwesomeIcon className="dropdown-icon" icon={faUserPlus} />
+              <div className="">Register</div>
             </NavLink>
           )}
         </div>

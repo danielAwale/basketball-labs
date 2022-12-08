@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect, Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./styles/nav.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

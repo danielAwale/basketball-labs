@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
 import "./styles/watchlist.css";
 import "./styles/featured_players_2.css";
 import Nav from './Nav';

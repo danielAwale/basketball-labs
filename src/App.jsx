@@ -79,12 +79,12 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home setAuth={setAuth} isAuthenticated={isAuthenticated}/>} />
-          <Route path="/stats" element={<Stats watchlist={watchlist} fetchWatchlist={fetchWatchlist} setAuth={setAuth} isAuthenticated={isAuthenticated}/>} />
-          <Route path="/graphs" element={<BarChart setAuth={setAuth} isAuthenticated={isAuthenticated}/>} />
+          <Route path="/" element={<Home setAuth={setAuth} isAuthenticated={isAuthenticated} setWatchlist={setWatchlist} />} />
+          <Route path="/stats" element={<Stats watchlist={watchlist} fetchWatchlist={fetchWatchlist} setAuth={setAuth} isAuthenticated={isAuthenticated} setWatchlist={setWatchlist}/>}  />
+          <Route path="/graphs" element={<BarChart setAuth={setAuth} isAuthenticated={isAuthenticated} setWatchlist={setWatchlist} />} />
           <Route path="/register" element={<Register setAuth={setAuth} isAuthenticated={isAuthenticated}/>} />
           <Route path="/login" element={<Login setAuth={setAuth}/>} isAuthenticated={isAuthenticated}/>
-          <Route path="/watchlist" element={<Watchlist setAuth={setAuth} isAuthenticated={isAuthenticated} watchlist={watchlist} fetchWatchlist={fetchWatchlist} setWatchlist={setWatchlist}/> } />
+          <Route path="/watchlist" element={<Watchlist setAuth={setAuth} isAuthenticated={isAuthenticated} watchlist={watchlist} fetchWatchlist={fetchWatchlist} setWatchlist={setWatchlist} /> } />
           <Route path="*" element={<Error/>} />
         </Routes>
       </Router>

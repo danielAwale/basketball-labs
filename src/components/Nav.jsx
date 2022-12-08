@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartColumn, faCalculator, faBinoculars, faUserPlus, faBars, faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 
-export default function Nav({ isAuthenticated, setAuth }) {
+export default function Nav({ isAuthenticated, setAuth, setWatchlist, watchlist, index }) {
 
   const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 
@@ -35,6 +35,7 @@ export default function Nav({ isAuthenticated, setAuth }) {
     setAuth(false);
     toast.success("Logged Out Successfully!")
     navigate("/");
+    setWatchlist([])
   }
 
   const noAccessWatchlist = () => {

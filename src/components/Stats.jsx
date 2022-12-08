@@ -7,7 +7,7 @@ import "./styles/home.css"
 import Featured_Players_2 from './Featured_Players_2';
 
 
-const Stats = ({ userId, watchlist, fetchWatchlist, isAuthenticated, setAuth }) => {
+const Stats = ({ userId, watchlist, fetchWatchlist, isAuthenticated, setAuth, setWatchlist }) => {
   const [statsData, setStatsData] = useState([]);
 
   const addClick = (e, playerId) => {
@@ -51,7 +51,7 @@ const Stats = ({ userId, watchlist, fetchWatchlist, isAuthenticated, setAuth }) 
 
   return (
     <>
-      <Nav setAuth={setAuth} isAuthenticated={isAuthenticated} />
+      <Nav setAuth={setAuth} isAuthenticated={isAuthenticated} setWatchlist={setWatchlist}/>
       <div class="flex-wrapper">
         <div><Featured_Players_2 /></div>
         <div class="flex flex-col">

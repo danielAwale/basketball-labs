@@ -32,8 +32,6 @@ const Featured_Players_2 = () => {
       .catch(error => console.log(error.message))
   }, []);
 
-  // console.log(statsData);
-  // console.log(window.screen.width);
   console.log(windowSize);
 
   const tiles = statsData.map(player => {
@@ -72,9 +70,6 @@ const Featured_Players_2 = () => {
       </div>
     )
   });
-
-  // console.log(tiles[0]);
-
 
   return (
     <>

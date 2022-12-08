@@ -106,23 +106,23 @@ export default function Nav({ isAuthenticated, setAuth, setWatchlist, watchlist,
           {isAuthenticated ? (
             <NavLink to="/watchlist" className="single-dropdown-section">
               <FontAwesomeIcon className="dropdown-icon" icon={faBinoculars} />
-              <div className="individual-nav-button">Watchlist</div>
+              <div className="">Watchlist</div>
             </NavLink>
           ) : (
             <NavLink to="/register" className="single-dropdown-section" onClick={noAccessWatchlist}>
               <FontAwesomeIcon className="dropdown-icon" icon={faBinoculars} />
-              <div className="individual-nav-button">Watchlist</div>
+              <div className="">Watchlist</div>
             </NavLink>)}
 
           {isAuthenticated ? (
             < NavLink to="/" className="single-dropdown-section" onClick={e => logout(e)}>
               <FontAwesomeIcon className="dropdown-icon" icon={faArrowRightFromBracket} />
-              <div className="individual-nav-button">Logout</div>
+              <div className="">Logout</div>
             </NavLink>
           ) : (
             <NavLink to="/register" className="single-dropdown-section">
               <FontAwesomeIcon className="dropdown-icon" icon={faUserPlus} />
-              <div className="individual-nav-button">Register</div>
+              <div className="">Register</div>
             </NavLink>
           )}
         </div>

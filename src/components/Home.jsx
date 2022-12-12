@@ -14,7 +14,7 @@ const Home = ({ setAuth, isAuthenticated, setWatchlist }) => {
         <div>
           <Featured_Players_2 />
         </div>
-        {/* <div><News /></div> */}
+        <div><News /></div>
         <div class="footer"><Footer /></div>
       </div>
     </>

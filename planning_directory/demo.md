@@ -29,9 +29,7 @@
 ## Presentation Script
 
 ### Intro
-
-"Hi all, we are the Basketball Labs development team. I'm Jas and I am a full-stack web developer. _Wait for team introductions_ Welcome to our demo where today we will present to you our fabulous product. Basketball Labs aims to be your go-to resource for all your NBA statistical needs. We provide in-depth season stats and visualize them for a more immersive experience. Filter, sort and marvel at all the different ways to take in these glorious numbers. We've utiilized the PERN stack while also using a bunch of libraries such as Chart.js, React Router, and Tailwind CSS just to name a few. We hope you enjoy this journey as we demo our full stack, multi-page react application. I'll hand it over to Noah to take it over from here."
+"Hi all, we are the Basketball Labs development team. I'm Jas and I am a full-stack web developer. *Wait for team introductions* Welcome to our demo where today we will present to you our fabulous product. Basketball Labs aims to be your go-to resource for all your NBA statistical needs. We provide in-depth season stats and visualize them for a more immersive experience. Filter, sort and marvel at all the different ways to take in these glorious numbers. We've utiilized the PERN stack while also using a bunch of libraries such as Chart.js, React Router, and Tailwind CSS just to name a few. We hope you enjoy this journey as we demo our full stack, multi-page react application. I'll hand it over to Noah to take it over from here."
 
 ## Outro
-
 "Thanks Daniel. As for some future features that we would love to implement, we would include the ability to be able to share watchlists with others, add more seasons including the current season with live statistics, a customizable fantasy point system, and as Daniel mentioned, more in-depth graphs. Thank you for taking the time to listen and view our demo. We hope our product has intrigued you and you'll use it to dominate your fantasy league or just for your basic stat needs. Thank you so much!

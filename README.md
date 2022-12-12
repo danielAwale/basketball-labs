@@ -11,19 +11,19 @@ An application that takes basketball statistics from an API and displays them in
 
 ## Project Screen Shot(s)
 
-Home Page
+### Home Page
 
-![PRETEND SCREEN SHOT IS HERE]()
+![Basketball Labs Homepage](https://github.com/danielAwale/basketball-labs/blob/main/public/docs/mainpage.png)
 
-Stats Page
+### Stats Page
 
 [ PRETEND OTHER SCREEN SHOT IS HERE ]
 
-Register Page
+### Register Page
 
 [ PRETEND SCREEN SHOT IS HERE ]
 
-Graphs Page
+### Graphs Page
 
 [ PRETEND SCREEN SHOT IS HERE ]
 

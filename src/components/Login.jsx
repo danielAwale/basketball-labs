@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import loginImg from '../assets/login.jpeg';
+import loginImg from '../docs/login.jpeg';
 import Nav from './Nav';
 import Footer from './Footer';
 import "./styles/nav.css";
